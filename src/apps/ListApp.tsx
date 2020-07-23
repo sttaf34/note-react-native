@@ -7,6 +7,7 @@ import { ScreenProps } from "src/type"
 import { ImageScreen } from "src/screens/ImageScreen"
 import { ConstantsScreen } from "src/screens/ConstantsScreen"
 import { FirebaseScreen } from "src/screens/FirebaseScreen"
+import { TextInputScreen } from "src/screens/TextInputScreen"
 
 const styles = StyleSheet.create({
   safeAreaView: {
@@ -23,20 +24,28 @@ const styles = StyleSheet.create({
   },
 })
 
-const screenNames = ["ImageScreen", "ConstantsScreen", "FirebaseScreen"]
+const screenNames = [
+  "ImageScreen",
+  "ConstantsScreen",
+  "FirebaseScreen",
+  "TextInputScreen",
+] as const
+type ScreenName = typeof screenNames[number]
 
 const DetailScreen: React.FC<ScreenProps> = ({ route }: ScreenProps) => {
-  const { screenName } = route.params || { screenName: "" }
-  switch (screenName) {
-    case "ImageScreen":
-      return <ImageScreen />
-    case "ConstantsScreen":
-      return <ConstantsScreen />
-    case "FirebaseScreen":
-      return <FirebaseScreen />
-    default:
-      return <Text style={styles.textInScreen}>スクリーンが見つかりません</Text>
+  const { screenName } = route.params || { screenName: "ImageScreen" }
+
+  const screenMap = new Map<ScreenName, JSX.Element>()
+  screenMap.set("ImageScreen", <ImageScreen />)
+  screenMap.set("ConstantsScreen", <ConstantsScreen />)
+  screenMap.set("FirebaseScreen", <FirebaseScreen />)
+  screenMap.set("TextInputScreen", <TextInputScreen />)
+
+  const element = screenMap.get(screenName)
+  if (element) {
+    return element
   }
+  return <Text style={styles.textInScreen}>スクリーンが見つかりません</Text>
 }
 
 const ListScreen: React.FC<ScreenProps> = ({ navigation }: ScreenProps) => {
