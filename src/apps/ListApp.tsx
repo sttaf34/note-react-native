@@ -5,6 +5,7 @@ import { createStackNavigator } from "@react-navigation/stack"
 import { ScreenProps } from "src/type"
 
 import { ImageScreen } from "src/screens/ImageScreen"
+import { ConstantsScreen } from "src/screens/ConstantsScreen"
 
 const styles = StyleSheet.create({
   safeAreaView: {
@@ -21,7 +22,19 @@ const styles = StyleSheet.create({
   },
 })
 
-const screenNames = ["ImageScreen", "screenB"]
+const screenNames = ["ImageScreen", "ConstantsScreen"]
+
+const DetailScreen: React.FC<ScreenProps> = ({ route }: ScreenProps) => {
+  const { screenName } = route.params || { screenName: "" }
+  switch (screenName) {
+    case "ImageScreen":
+      return <ImageScreen />
+    case "ConstantsScreen":
+      return <ConstantsScreen />
+    default:
+      return <Text style={styles.textInScreen}>スクリーンが見つかりません</Text>
+  }
+}
 
 const ListScreen: React.FC<ScreenProps> = ({ navigation }: ScreenProps) => {
   const lis = screenNames.map((screenName) => (
@@ -39,16 +52,6 @@ const ListScreen: React.FC<ScreenProps> = ({ navigation }: ScreenProps) => {
   ))
 
   return <ScrollView>{lis}</ScrollView>
-}
-
-const DetailScreen: React.FC<ScreenProps> = ({ route }: ScreenProps) => {
-  const { screenName } = route.params || { screenName: "" }
-  switch (screenName) {
-    case "ImageScreen":
-      return <ImageScreen />
-    default:
-      return <Text style={styles.textInScreen}>スクリーンが見つかりません</Text>
-  }
 }
 
 const Stack = createStackNavigator()
