@@ -6,6 +6,7 @@ import { ScreenProps } from "src/type"
 
 import { ImageScreen } from "src/screens/ImageScreen"
 import { ConstantsScreen } from "src/screens/ConstantsScreen"
+import { FirebaseScreen } from "src/screens/FirebaseScreen"
 
 const styles = StyleSheet.create({
   safeAreaView: {
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
   },
 })
 
-const screenNames = ["ImageScreen", "ConstantsScreen"]
+const screenNames = ["ImageScreen", "ConstantsScreen", "FirebaseScreen"]
 
 const DetailScreen: React.FC<ScreenProps> = ({ route }: ScreenProps) => {
   const { screenName } = route.params || { screenName: "" }
@@ -31,6 +32,8 @@ const DetailScreen: React.FC<ScreenProps> = ({ route }: ScreenProps) => {
       return <ImageScreen />
     case "ConstantsScreen":
       return <ConstantsScreen />
+    case "FirebaseScreen":
+      return <FirebaseScreen />
     default:
       return <Text style={styles.textInScreen}>スクリーンが見つかりません</Text>
   }
