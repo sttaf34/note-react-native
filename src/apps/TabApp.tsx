@@ -3,6 +3,7 @@ import { Text, StatusBar, SafeAreaView, StyleSheet } from "react-native"
 import { NavigationContainer } from "@react-navigation/native"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { MaterialCommunityIcons } from "@expo/vector-icons"
+import { TabRightScreen } from "src/screens/TabRightScreen"
 
 const styles = StyleSheet.create({
   safeAreaView: {
@@ -18,15 +19,6 @@ const LeftScreen: React.FC = () => {
     <SafeAreaView style={styles.safeAreaView}>
       <StatusBar hidden={false} />
       <Text style={styles.textInScreen}>Left Left</Text>
-    </SafeAreaView>
-  )
-}
-
-const RightScreen: React.FC = () => {
-  return (
-    <SafeAreaView style={styles.safeAreaView}>
-      <StatusBar hidden={false} />
-      <Text style={styles.textInScreen}>Right Right</Text>
     </SafeAreaView>
   )
 }
@@ -60,7 +52,7 @@ export const TabApp: React.FC = () => {
         />
         <Tab.Screen
           name="Right"
-          component={RightScreen}
+          component={TabRightScreen}
           options={{
             tabBarLabel: "Right",
             tabBarIcon: ({ color, size }: TabBarIconProps) => (

@@ -8,8 +8,8 @@ import { NavigationModalApp } from "src/apps/NavigationModalApp"
 const App = (): JSX.Element => {
   return (
     <>
-      {/* <TabApp /> */}
-      <ListApp />
+      <TabApp />
+      {/* <ListApp /> */}
       {/* <ModalApp /> */}
       {/* <NavigationApp /> */}
       {/* <NavigationModalApp /> */}
