@@ -36,9 +36,9 @@ const DetailScreen: React.FC<ScreenProps> = ({ route }: ScreenProps) => {
   const { screenName } = route.params || { screenName: "ImageScreen" }
 
   const screenMap = new Map<ScreenName, JSX.Element>()
-  screenMap.set("ImageScreen", <ImageScreen />)
   screenMap.set("ConstantsScreen", <ConstantsScreen />)
   screenMap.set("FirebaseScreen", <FirebaseScreen />)
+  screenMap.set("ImageScreen", <ImageScreen />)
   screenMap.set("TextInputScreen", <TextInputScreen />)
 
   const element = screenMap.get(screenName)
