@@ -1,5 +1,6 @@
 import React from "react"
 import { Text, Button, StyleSheet, SafeAreaView } from "react-native"
+
 import { NavigationContainer } from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
 import { ScreenProps } from "src/type"
@@ -8,16 +9,12 @@ const styles = StyleSheet.create({
   safeAreaView: {
     flex: 1,
   },
-  item: {
-    margin: 12,
-  },
   textInScreen: {
     margin: 12,
   },
-  title: {
-    fontSize: 32,
-  },
 })
+
+const Stack = createStackNavigator()
 
 const HelloScreen: React.FC<ScreenProps> = ({ navigation }: ScreenProps) => {
   return (
@@ -46,8 +43,6 @@ const GoodbyeScreen: React.FC<ScreenProps> = ({ route }: ScreenProps) => {
     </SafeAreaView>
   )
 }
-
-const Stack = createStackNavigator()
 
 export const NavigationApp: React.FC = () => {
   return (

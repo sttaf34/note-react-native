@@ -4,15 +4,17 @@ import { ListApp } from "src/apps/ListApp"
 import { ModalApp } from "src/apps/ModalApp"
 import { NavigationApp } from "src/apps/NavigationApp"
 import { NavigationModalApp } from "src/apps/NavigationModalApp"
+import { TypedNavigationApp } from "src/apps/TypedNavigationApp"
 
 const App = (): JSX.Element => {
   return (
     <>
-      <TabApp />
+      {/* <TabApp /> */}
       {/* <ListApp /> */}
       {/* <ModalApp /> */}
       {/* <NavigationApp /> */}
       {/* <NavigationModalApp /> */}
+      <TypedNavigationApp />
     </>
   )
 }
