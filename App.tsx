@@ -5,6 +5,7 @@ import { ModalApp } from "src/apps/ModalApp"
 import { NavigationApp } from "src/apps/NavigationApp"
 import { NavigationModalApp } from "src/apps/NavigationModalApp"
 import { TypedNavigationApp } from "src/apps/TypedNavigationApp"
+import { TypedUseNavigationApp } from "src/apps/TypedUseNavigationApp"
 
 const App = (): JSX.Element => {
   return (
@@ -14,7 +15,8 @@ const App = (): JSX.Element => {
       {/* <ModalApp /> */}
       {/* <NavigationApp /> */}
       {/* <NavigationModalApp /> */}
-      <TypedNavigationApp />
+      {/* <TypedNavigationApp /> */}
+      <TypedUseNavigationApp />
     </>
   )
 }
