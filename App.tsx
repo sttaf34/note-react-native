@@ -11,12 +11,12 @@ const App = (): JSX.Element => {
   return (
     <>
       {/* <TabApp /> */}
-      {/* <ListApp /> */}
+      <ListApp />
       {/* <ModalApp /> */}
       {/* <NavigationApp /> */}
       {/* <NavigationModalApp /> */}
       {/* <TypedNavigationApp /> */}
-      <TypedUseNavigationApp />
+      {/* <TypedUseNavigationApp /> */}
     </>
   )
 }

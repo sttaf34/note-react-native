@@ -5,8 +5,9 @@ import { createStackNavigator } from "@react-navigation/stack"
 import { ScreenProps } from "src/type"
 
 import { ImageScreen } from "src/screens/ImageScreen"
-import { ConstantsScreen } from "src/screens/ConstantsScreen"
+import { FlatListScreen } from "src/screens/FlatListScreen"
 import { FirebaseScreen } from "src/screens/FirebaseScreen"
+import { ConstantsScreen } from "src/screens/ConstantsScreen"
 import { TextInputScreen } from "src/screens/TextInputScreen"
 
 const styles = StyleSheet.create({
@@ -26,8 +27,9 @@ const styles = StyleSheet.create({
 
 const screenNames = [
   "ImageScreen",
-  "ConstantsScreen",
+  "FlatListScreen",
   "FirebaseScreen",
+  "ConstantsScreen",
   "TextInputScreen",
 ] as const
 type ScreenName = typeof screenNames[number]
@@ -36,9 +38,10 @@ const DetailScreen: React.FC<ScreenProps> = ({ route }: ScreenProps) => {
   const { screenName } = route.params || { screenName: "ImageScreen" }
 
   const screenMap = new Map<ScreenName, JSX.Element>()
-  screenMap.set("ConstantsScreen", <ConstantsScreen />)
-  screenMap.set("FirebaseScreen", <FirebaseScreen />)
   screenMap.set("ImageScreen", <ImageScreen />)
+  screenMap.set("FlatListScreen", <FlatListScreen />)
+  screenMap.set("FirebaseScreen", <FirebaseScreen />)
+  screenMap.set("ConstantsScreen", <ConstantsScreen />)
   screenMap.set("TextInputScreen", <TextInputScreen />)
 
   const element = screenMap.get(screenName)
