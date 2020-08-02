@@ -33,9 +33,22 @@ const HelloScreen: React.FC<ScreenProps> = ({ navigation }: ScreenProps) => {
   )
 }
 
-const GoodbyeScreen: React.FC<ScreenProps> = ({ route }: ScreenProps) => {
+const GoodbyeScreen: React.FC<ScreenProps> = ({
+  navigation,
+  route,
+}: ScreenProps) => {
   // 「遷移元」からの値の受け取り
   const { id } = route.params || { id: 0 }
+
+  // 右上のボタン
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <Button onPress={() => console.log("右上！")} title="Hello" />
+      ),
+    })
+  }, [navigation])
+
   return (
     <SafeAreaView style={styles.safeAreaView}>
       <Text style={styles.textInScreen}>Goodbye Goodbye</Text>

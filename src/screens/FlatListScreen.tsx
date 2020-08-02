@@ -26,6 +26,8 @@ export const FlatListScreen: React.FC = () => {
     )
   }
 
+  // https://reactnative.dev/docs/flatlist
+  // <li key={} /> の代わりに keyExtractor で指定する仕組み
   return (
     <FlatList
       data={fruits}
