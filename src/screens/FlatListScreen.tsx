@@ -1,5 +1,5 @@
 import React from "react"
-import { Text, View, FlatList } from "react-native"
+import { Text, View, FlatList, ListRenderItemInfo } from "react-native"
 
 type Fruit = {
   id: string
@@ -15,12 +15,16 @@ const fruits: Fruit[] = [
 export const FlatListScreen: React.FC = () => {
   // fruits のそれぞれの要素を元に、
   // JSX.Element を返す関数を <FlatList> に渡すような仕組み
-  // TODO: 型きっちりする
-  const renderItem = ({ item }: { item: Fruit }): JSX.Element => (
-    <View>
-      <Text>{item.name}</Text>
-    </View>
-  )
+  const renderItem = (info: ListRenderItemInfo<Fruit>): JSX.Element => {
+    const { item, index } = info
+    return (
+      <View>
+        <Text>
+          {index}. {item.name}
+        </Text>
+      </View>
+    )
+  }
 
   return (
     <FlatList

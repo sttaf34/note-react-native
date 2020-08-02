@@ -9,6 +9,7 @@ import { FlatListScreen } from "src/screens/FlatListScreen"
 import { FirebaseScreen } from "src/screens/FirebaseScreen"
 import { ConstantsScreen } from "src/screens/ConstantsScreen"
 import { TextInputScreen } from "src/screens/TextInputScreen"
+import { SectionListScreen } from "src/screens/SectionListScreen"
 
 const styles = StyleSheet.create({
   safeAreaView: {
@@ -31,6 +32,7 @@ const screenNames = [
   "FirebaseScreen",
   "ConstantsScreen",
   "TextInputScreen",
+  "SectionListScreen",
 ] as const
 type ScreenName = typeof screenNames[number]
 
@@ -43,6 +45,7 @@ const DetailScreen: React.FC<ScreenProps> = ({ route }: ScreenProps) => {
   screenMap.set("FirebaseScreen", <FirebaseScreen />)
   screenMap.set("ConstantsScreen", <ConstantsScreen />)
   screenMap.set("TextInputScreen", <TextInputScreen />)
+  screenMap.set("SectionListScreen", <SectionListScreen />)
 
   const element = screenMap.get(screenName)
   if (element) {
