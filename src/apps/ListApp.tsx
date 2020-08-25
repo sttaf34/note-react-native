@@ -7,6 +7,7 @@ import { ScreenProps } from "src/type"
 import { FontScreen } from "src/screens/FontScreen"
 import { FlexScreen } from "src/screens/FlexScreen"
 import { ImageScreen } from "src/screens/ImageScreen"
+import { ModalScreen } from "src/screens/ModalScreen"
 import { FlatListScreen } from "src/screens/FlatListScreen"
 import { PressableScreen } from "src/screens/PressableScreen"
 import { ConstantsScreen } from "src/screens/ConstantsScreen"
@@ -27,6 +28,7 @@ const screenNames = [
   "FontScreen",
   "FlexScreen",
   "ImageScreen",
+  "ModalScreen",
   "FlatListScreen",
   "PressableScreen",
   "ConstantsScreen",
@@ -43,6 +45,7 @@ const DetailScreen: React.FC<ScreenProps> = ({ route }: ScreenProps) => {
   screenMap.set("FontScreen", <FontScreen />)
   screenMap.set("FlexScreen", <FlexScreen />)
   screenMap.set("ImageScreen", <ImageScreen />)
+  screenMap.set("ModalScreen", <ModalScreen />)
   screenMap.set("FlatListScreen", <FlatListScreen />)
   screenMap.set("PressableScreen", <PressableScreen />)
   screenMap.set("ConstantsScreen", <ConstantsScreen />)

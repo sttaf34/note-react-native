@@ -46,7 +46,7 @@ const ModalView: React.FC<ModalViewProps> = (props: ModalViewProps) => {
   )
 }
 
-export const ModalApp: React.FC = () => {
+export const ModalScreen: React.FC = () => {
   const [modalVisible, setModalVisible] = useState(false)
   const [value, setValue] = React.useState("") // モーダルの中で入力される用
 
