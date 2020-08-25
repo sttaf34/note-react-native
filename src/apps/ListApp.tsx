@@ -4,10 +4,10 @@ import { NavigationContainer } from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
 import { ScreenProps } from "src/type"
 
+import { FontScreen } from "src/screens/FontScreen"
 import { FlexScreen } from "src/screens/FlexScreen"
 import { ImageScreen } from "src/screens/ImageScreen"
 import { FlatListScreen } from "src/screens/FlatListScreen"
-import { FirebaseScreen } from "src/screens/FirebaseScreen"
 import { PressableScreen } from "src/screens/PressableScreen"
 import { ConstantsScreen } from "src/screens/ConstantsScreen"
 import { TextInputScreen } from "src/screens/TextInputScreen"
@@ -24,10 +24,10 @@ const styles = StyleSheet.create({
 })
 
 const screenNames = [
+  "FontScreen",
   "FlexScreen",
   "ImageScreen",
   "FlatListScreen",
-  "FirebaseScreen",
   "PressableScreen",
   "ConstantsScreen",
   "TextInputScreen",
@@ -40,10 +40,10 @@ const DetailScreen: React.FC<ScreenProps> = ({ route }: ScreenProps) => {
   const { screenName } = route.params || { screenName: "ImageScreen" }
 
   const screenMap = new Map<ScreenName, JSX.Element>()
+  screenMap.set("FontScreen", <FontScreen />)
   screenMap.set("FlexScreen", <FlexScreen />)
   screenMap.set("ImageScreen", <ImageScreen />)
   screenMap.set("FlatListScreen", <FlatListScreen />)
-  screenMap.set("FirebaseScreen", <FirebaseScreen />)
   screenMap.set("PressableScreen", <PressableScreen />)
   screenMap.set("ConstantsScreen", <ConstantsScreen />)
   screenMap.set("TextInputScreen", <TextInputScreen />)
