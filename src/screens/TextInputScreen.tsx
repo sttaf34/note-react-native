@@ -1,5 +1,6 @@
 import React from "react"
-import { Text, TextInput, StyleSheet } from "react-native"
+import { Button, Text, TextInput, StyleSheet, Keyboard } from "react-native"
+import { MarginDiveder } from "src/components/MarginDiveder"
 
 const styles = StyleSheet.create({
   input: {
@@ -15,6 +16,7 @@ const styles = StyleSheet.create({
 
 export const TextInputScreen: React.FC = () => {
   const [value, setValue] = React.useState("")
+
   return (
     <>
       <TextInput
@@ -23,6 +25,8 @@ export const TextInputScreen: React.FC = () => {
         value={value}
       />
       <Text style={styles.text}>{value}</Text>
+      <MarginDiveder />
+      <Button title="キーボードを閉じる" onPress={Keyboard.dismiss} />
     </>
   )
 }
