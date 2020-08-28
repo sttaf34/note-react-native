@@ -1,16 +1,6 @@
 import React from "react"
 import { View, Text, StyleSheet } from "react-native"
-import { Divider } from "react-native-elements"
-
-const MarginDiveder: React.FC = () => {
-  const styles = StyleSheet.create({
-    margin: {
-      marginTop: 5,
-      marginBottom: 5,
-    },
-  })
-  return <Divider style={styles.margin} />
-}
+import { MarginDiveder } from "src/components/MarginDiveder"
 
 // iPhone SE      => 半角フォントと全角フォントの高さがずれる
 // Android One X2 => 半角フォントと全角フォントの高さが揃う
