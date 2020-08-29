@@ -14,6 +14,7 @@ import { PressableScreen } from "src/screens/PressableScreen"
 import { ConstantsScreen } from "src/screens/ConstantsScreen"
 import { TextInputScreen } from "src/screens/TextInputScreen"
 import { SectionListScreen } from "src/screens/SectionListScreen"
+import { AnimatedHelloScreen } from "src/screens/AnimatedHelloScreen"
 import { HelloElementsScreen } from "src/screens/HelloElementsScreen"
 
 const styles = StyleSheet.create({
@@ -37,6 +38,7 @@ const screenMap = () => {
   map.set("ConstantsScreen", <ConstantsScreen />)
   map.set("TextInputScreen", <TextInputScreen />)
   map.set("SectionListScreen", <SectionListScreen />)
+  map.set("AnimatedHelloScreen", <AnimatedHelloScreen />)
   map.set("HelloElementsScreen", <HelloElementsScreen />)
   return map
 }
