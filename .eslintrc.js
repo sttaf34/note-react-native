@@ -1,41 +1,44 @@
 module.exports = {
-  "env": {
-    "es6": true,
-    "node": true,
+  env: {
+    es6: true,
+    node: true,
   },
-  "extends": [
+  extends: [
     "airbnb",
+    "airbnb/hooks",
     "plugin:@typescript-eslint/recommended",
     "prettier",
     "prettier/@typescript-eslint",
-    "prettier/react"
+    "prettier/react",
   ],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "project": "./tsconfig.json",
-    "createDefaultProgram": true
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    project: "./tsconfig.json",
   },
-  "plugins": ["@typescript-eslint", "prettier"],
-  "settings": {
+  plugins: ["@typescript-eslint", "react-hooks", "prettier"],
+  settings: {
     "import/resolver": {
-      "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      node: {
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
       },
+
       // https://github.com/benmosher/eslint-plugin-import/issues/1485
-      "typescript": {}
+      typescript: {},
     },
-    "react": {
-      "version": "detect"
-    }
+    react: {
+      version: "detect",
+    },
   },
-  "rules": {
+  rules: {
     "no-console": "off",
-    "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] } ],
-    "prettier/prettier": ["error", { "semi": false } ],
+    "prettier/prettier": ["error", { semi: false }],
+    "react/jsx-filename-extension": ["error", { extensions: [".tsx"] }],
 
     // https://stackoverflow.com/questions/59265981/typescript-eslint-missing-file-extension-ts-import-extensions
     "import/extensions": [
-      "error", "ignorePackages", { "ts": "never", "tsx": "never" }
+      "error",
+      "ignorePackages",
+      { ts: "never", tsx: "never" },
     ],
 
     // switch 内での列挙漏れチェック
@@ -43,8 +46,8 @@ module.exports = {
     "default-case": "off",
 
     // export default は基本使わないとする
-    // https://engineering.linecorp.com/ja/blog/you-dont-need-default-export/
+    // pages ディレクトリ下では限定的に許可して対応してる
     "import/no-default-export": "error",
     "import/prefer-default-export": "off",
-  }
+  },
 }

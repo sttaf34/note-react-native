@@ -52,7 +52,6 @@
     "typescript": "~3.9.5"
   },
   "eslintIgnore": [
-    ".eslintrc.js",
     "babel.config.js"
   ]
 }
