@@ -9,6 +9,7 @@ import { FlexScreen } from "src/screens/FlexScreen"
 import { ImageScreen } from "src/screens/ImageScreen"
 import { ModalScreen } from "src/screens/ModalScreen"
 import { FlatListScreen } from "src/screens/FlatListScreen"
+import { SwipeListScreen } from "src/screens/SwipeList"
 import { PressableScreen } from "src/screens/PressableScreen"
 import { ConstantsScreen } from "src/screens/ConstantsScreen"
 import { TextInputScreen } from "src/screens/TextInputScreen"
@@ -30,6 +31,7 @@ const screenNames = [
   "ImageScreen",
   "ModalScreen",
   "FlatListScreen",
+  "SwipeListScreen",
   "PressableScreen",
   "ConstantsScreen",
   "TextInputScreen",
@@ -47,6 +49,7 @@ const DetailScreen: React.FC<ScreenProps> = ({ route }: ScreenProps) => {
   screenMap.set("ImageScreen", <ImageScreen />)
   screenMap.set("ModalScreen", <ModalScreen />)
   screenMap.set("FlatListScreen", <FlatListScreen />)
+  screenMap.set("SwipeListScreen", <SwipeListScreen />)
   screenMap.set("PressableScreen", <PressableScreen />)
   screenMap.set("ConstantsScreen", <ConstantsScreen />)
   screenMap.set("TextInputScreen", <TextInputScreen />)
