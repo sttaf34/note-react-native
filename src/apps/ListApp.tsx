@@ -9,7 +9,7 @@ import { FlexScreen } from "src/screens/FlexScreen"
 import { ImageScreen } from "src/screens/ImageScreen"
 import { ModalScreen } from "src/screens/ModalScreen"
 import { FlatListScreen } from "src/screens/FlatListScreen"
-import { SwipeListScreen } from "src/screens/SwipeList"
+import { SwipeListScreen } from "src/screens/SwipeListScreen"
 import { PressableScreen } from "src/screens/PressableScreen"
 import { ConstantsScreen } from "src/screens/ConstantsScreen"
 import { TextInputScreen } from "src/screens/TextInputScreen"
@@ -25,38 +25,26 @@ const styles = StyleSheet.create({
   },
 })
 
-const screenNames = [
-  "FontScreen",
-  "FlexScreen",
-  "ImageScreen",
-  "ModalScreen",
-  "FlatListScreen",
-  "SwipeListScreen",
-  "PressableScreen",
-  "ConstantsScreen",
-  "TextInputScreen",
-  "SectionListScreen",
-  "HelloElementsScreen",
-] as const
-type ScreenName = typeof screenNames[number]
+const screenMap = () => {
+  const map = new Map<string, JSX.Element>()
+  map.set("FontScreen", <FontScreen />)
+  map.set("FlexScreen", <FlexScreen />)
+  map.set("ImageScreen", <ImageScreen />)
+  map.set("ModalScreen", <ModalScreen />)
+  map.set("FlatListScreen", <FlatListScreen />)
+  map.set("SwipeListScreen", <SwipeListScreen />)
+  map.set("PressableScreen", <PressableScreen />)
+  map.set("ConstantsScreen", <ConstantsScreen />)
+  map.set("TextInputScreen", <TextInputScreen />)
+  map.set("SectionListScreen", <SectionListScreen />)
+  map.set("HelloElementsScreen", <HelloElementsScreen />)
+  return map
+}
 
 const DetailScreen: React.FC<ScreenProps> = ({ route }: ScreenProps) => {
   const { screenName } = route.params || { screenName: "ImageScreen" }
 
-  const screenMap = new Map<ScreenName, JSX.Element>()
-  screenMap.set("FontScreen", <FontScreen />)
-  screenMap.set("FlexScreen", <FlexScreen />)
-  screenMap.set("ImageScreen", <ImageScreen />)
-  screenMap.set("ModalScreen", <ModalScreen />)
-  screenMap.set("FlatListScreen", <FlatListScreen />)
-  screenMap.set("SwipeListScreen", <SwipeListScreen />)
-  screenMap.set("PressableScreen", <PressableScreen />)
-  screenMap.set("ConstantsScreen", <ConstantsScreen />)
-  screenMap.set("TextInputScreen", <TextInputScreen />)
-  screenMap.set("SectionListScreen", <SectionListScreen />)
-  screenMap.set("HelloElementsScreen", <HelloElementsScreen />)
-
-  const element = screenMap.get(screenName)
+  const element = screenMap().get(screenName)
   if (element) {
     return element
   }
@@ -64,6 +52,7 @@ const DetailScreen: React.FC<ScreenProps> = ({ route }: ScreenProps) => {
 }
 
 const ListScreen: React.FC<ScreenProps> = ({ navigation }: ScreenProps) => {
+  const screenNames = Array.from(screenMap().keys())
   const lis = screenNames.map((screenName) => (
     <View style={styles.item} key={screenName}>
       <Button
@@ -76,7 +65,6 @@ const ListScreen: React.FC<ScreenProps> = ({ navigation }: ScreenProps) => {
       />
     </View>
   ))
-
   return <ScrollView style={styles.scrollView}>{lis}</ScrollView>
 }
 
