@@ -12,18 +12,19 @@ type Food = {
   name: string
 }
 
-const data: ReadonlyArray<SectionListData<Food>> = [
+// セクション毎で持たせたいプロパティを定義する形にしてみた
+interface MySectionListData extends SectionListData<Food> {
+  title: string
+}
+
+const data: ReadonlyArray<MySectionListData> = [
   {
-    // data は SectionBase で定義されてて必須
+    title: "Fruits",
     data: [
       { id: "1", name: "apple" },
       { id: "2", name: "grape" },
       { id: "3", name: "banana" },
     ],
-
-    // title は SectionListData で定義されている [key: string]: any に
-    // 該当することになる、補完が効かないのでどうにかしたい
-    title: "Fruits",
   },
   {
     title: "Vegetables",
@@ -56,6 +57,7 @@ export const SectionListScreen: React.FC = () => {
 
   return (
     <SectionList
+      keyExtractor={(food) => food.id}
       sections={data}
       renderItem={renderItem}
       renderSectionHeader={renderSectionHeader}
