@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
 
   // 背後にこのようなセルを置いてるような仕組み
   // ┌──────────────────────────┐
-  // │ Left               Right │
+  // │ Hi!                 Hey! │
   // └──────────────────────────┘
   renderHiddenItem: {
     alignItems: "center",
@@ -35,6 +35,13 @@ const styles = StyleSheet.create({
     height: 50,
   },
 })
+
+type SwipeValueChangeData = {
+  key: string
+  value: number
+  direction: "left" | "right"
+  isOpen: boolean
+}
 
 export const SwipeListScreen: React.FC = () => {
   const renderItem = (info: ListRenderItemInfo<Fruit>): JSX.Element => {
@@ -51,20 +58,33 @@ export const SwipeListScreen: React.FC = () => {
   const renderHiddenItem = (): JSX.Element => {
     return (
       <View style={styles.renderHiddenItem}>
-        <Text>Left</Text>
-        <Text>Right</Text>
+        <Text>Hi!</Text>
+        <Text>Hey!</Text>
       </View>
     )
+  }
+
+  // スワイプの動作に合わせて何回も実行される
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const onSwipeValueChange = (data: SwipeValueChangeData): void => {
+    // console.log(data.key) // スワイプ中の行の keyExtractor で指定してるキー
+    // console.log(data.isOpen)
+    // console.log(data.direction) // スワイプされた方向
+    // console.log(data.value) // スワイプされたスクロールの量
+    //
+    // 例えば、左方向に一定量以上スワイプしたら削除の処理を実行したりする
   }
 
   return (
     <>
       <SwipeListView
         data={fruits}
+        keyExtractor={(fruit) => fruit.id}
         renderItem={renderItem}
         renderHiddenItem={renderHiddenItem}
         leftOpenValue={60}
         rightOpenValue={-60}
+        onSwipeValueChange={onSwipeValueChange}
       />
     </>
   )
