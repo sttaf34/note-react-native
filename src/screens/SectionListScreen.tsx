@@ -12,14 +12,9 @@ type Food = {
   name: string
 }
 
-// セクション毎で持たせたいプロパティを定義する形にしてみた
-interface MySectionListData extends SectionListData<Food> {
-  title: string
-}
-
-const data: ReadonlyArray<MySectionListData> = [
+const data: ReadonlyArray<SectionListData<Food>> = [
   {
-    title: "Fruits",
+    key: "Fruits",
     data: [
       { id: "1", name: "apple" },
       { id: "2", name: "grape" },
@@ -27,7 +22,7 @@ const data: ReadonlyArray<MySectionListData> = [
     ],
   },
   {
-    title: "Vegetables",
+    key: "Vegetables",
     data: [
       { id: "4", name: "okra" },
       { id: "5", name: "radish" },
@@ -42,7 +37,7 @@ export const SectionListScreen: React.FC = () => {
     return (
       <View>
         <Text>
-          {section.title} / {index} / {food.id} / {food.name}
+          {section.key} / {index} / {food.id} / {food.name}
         </Text>
       </View>
     )
@@ -50,9 +45,9 @@ export const SectionListScreen: React.FC = () => {
 
   const renderSectionHeader = (info: {
     section: SectionListData<Food>
-  }): JSX.Element => {
+  }): React.ReactElement => {
     const { section } = info
-    return <Text>{section.title}</Text>
+    return <Text>{section.key}</Text>
   }
 
   return (

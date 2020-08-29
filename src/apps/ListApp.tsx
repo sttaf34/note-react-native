@@ -8,6 +8,7 @@ import { FontScreen } from "src/screens/FontScreen"
 import { FlexScreen } from "src/screens/FlexScreen"
 import { ImageScreen } from "src/screens/ImageScreen"
 import { ModalScreen } from "src/screens/ModalScreen"
+import { SwipeRowScreen } from "src/screens/SwipeRowScreen"
 import { FlatListScreen } from "src/screens/FlatListScreen"
 import { SwipeListScreen } from "src/screens/SwipeListScreen"
 import { PressableScreen } from "src/screens/PressableScreen"
@@ -16,7 +17,9 @@ import { TextInputScreen } from "src/screens/TextInputScreen"
 import { SectionListScreen } from "src/screens/SectionListScreen"
 import { AnimatedHelloScreen } from "src/screens/AnimatedHelloScreen"
 import { HelloElementsScreen } from "src/screens/HelloElementsScreen"
+import { SwipeListEditScreen } from "src/screens/SwipeListEditScreen"
 import { AnimatedButtonScreen } from "src/screens/AnimatedButtonScreen"
+import { SwipeListSectionScreen } from "src/screens/SwipeListSectionScreen"
 
 const styles = StyleSheet.create({
   item: {
@@ -33,6 +36,7 @@ const screenMap = () => {
   map.set("FlexScreen", <FlexScreen />)
   map.set("ImageScreen", <ImageScreen />)
   map.set("ModalScreen", <ModalScreen />)
+  map.set("SwipeRowScreen", <SwipeRowScreen />)
   map.set("FlatListScreen", <FlatListScreen />)
   map.set("SwipeListScreen", <SwipeListScreen />)
   map.set("PressableScreen", <PressableScreen />)
@@ -41,7 +45,9 @@ const screenMap = () => {
   map.set("SectionListScreen", <SectionListScreen />)
   map.set("AnimatedHelloScreen", <AnimatedHelloScreen />)
   map.set("HelloElementsScreen", <HelloElementsScreen />)
+  map.set("SwipeListEditScreen", <SwipeListEditScreen />)
   map.set("AnimatedButtonScreen", <AnimatedButtonScreen />)
+  map.set("SwipeListSectionScreen", <SwipeListSectionScreen />)
   return map
 }
 
