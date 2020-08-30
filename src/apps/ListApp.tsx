@@ -15,10 +15,12 @@ import { PressableScreen } from "src/screens/PressableScreen"
 import { ConstantsScreen } from "src/screens/ConstantsScreen"
 import { TextInputScreen } from "src/screens/TextInputScreen"
 import { SectionListScreen } from "src/screens/SectionListScreen"
+import { SwipeAnimatedScreen } from "src/screens/SwipeAnimatedScreen"
 import { AnimatedHelloScreen } from "src/screens/AnimatedHelloScreen"
 import { HelloElementsScreen } from "src/screens/HelloElementsScreen"
 import { SwipeListEditScreen } from "src/screens/SwipeListEditScreen"
 import { AnimatedButtonScreen } from "src/screens/AnimatedButtonScreen"
+import { SwipeRowSectionScreen } from "src/screens/SwipeRowSectionScreen"
 import { SwipeListSectionScreen } from "src/screens/SwipeListSectionScreen"
 
 const styles = StyleSheet.create({
@@ -43,10 +45,12 @@ const screenMap = () => {
   map.set("ConstantsScreen", <ConstantsScreen />)
   map.set("TextInputScreen", <TextInputScreen />)
   map.set("SectionListScreen", <SectionListScreen />)
+  map.set("SwipeAnimatedScreen", <SwipeAnimatedScreen />)
   map.set("AnimatedHelloScreen", <AnimatedHelloScreen />)
   map.set("HelloElementsScreen", <HelloElementsScreen />)
   map.set("SwipeListEditScreen", <SwipeListEditScreen />)
   map.set("AnimatedButtonScreen", <AnimatedButtonScreen />)
+  map.set("SwipeRowSectionScreen", <SwipeRowSectionScreen />)
   map.set("SwipeListSectionScreen", <SwipeListSectionScreen />)
   return map
 }
