@@ -7,6 +7,7 @@ import { NavigationApp } from "src/apps/NavigationApp"
 import { NavigationModalApp } from "src/apps/NavigationModalApp"
 import { TypedNavigationApp } from "src/apps/TypedNavigationApp"
 import { TypedUseNavigationApp } from "src/apps/TypedUseNavigationApp"
+import { NavigationPassValueApp } from "src/apps/NavigationPassValueApp"
 
 const App = (): JSX.Element => {
   return (
@@ -17,6 +18,7 @@ const App = (): JSX.Element => {
       {/* <NavigationModalApp /> */}
       {/* <TypedNavigationApp /> */}
       {/* <TypedUseNavigationApp /> */}
+      {/* <NavigationPassValueApp /> */}
     </>
   )
 }
