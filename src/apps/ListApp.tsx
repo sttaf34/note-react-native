@@ -4,25 +4,26 @@ import { NavigationContainer } from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
 import { ScreenProps } from "src/type"
 
-import { FontScreen } from "src/screens/FontScreen"
-import { FlexScreen } from "src/screens/FlexScreen"
-import { ImageScreen } from "src/screens/ImageScreen"
-import { ModalScreen } from "src/screens/ModalScreen"
-import { UnmountScreen } from "src/screens/UnmountScreen"
-import { SwipeRowScreen } from "src/screens/SwipeRowScreen"
-import { FlatListScreen } from "src/screens/FlatListScreen"
-import { SwipeListScreen } from "src/screens/SwipeListScreen"
-import { PressableScreen } from "src/screens/PressableScreen"
-import { ConstantsScreen } from "src/screens/ConstantsScreen"
-import { TextInputScreen } from "src/screens/TextInputScreen"
-import { SectionListScreen } from "src/screens/SectionListScreen"
-import { SwipeAnimatedScreen } from "src/screens/SwipeAnimatedScreen"
-import { AnimatedHelloScreen } from "src/screens/AnimatedHelloScreen"
-import { HelloElementsScreen } from "src/screens/HelloElementsScreen"
-import { SwipeListEditScreen } from "src/screens/SwipeListEditScreen"
-import { AnimatedButtonScreen } from "src/screens/AnimatedButtonScreen"
-import { SwipeRowSectionScreen } from "src/screens/SwipeRowSectionScreen"
-import { SwipeListSectionScreen } from "src/screens/SwipeListSectionScreen"
+import { SwipeRowScreen } from "src/screens/list/SwipeRowScreen"
+import { FlatListScreen } from "src/screens/list/FlatListScreen"
+import { SwipeListScreen } from "src/screens/list/SwipeListScreen"
+import { SectionListScreen } from "src/screens/list/SectionListScreen"
+import { SwipeAnimatedScreen } from "src/screens/list/SwipeAnimatedScreen"
+import { SwipeListEditScreen } from "src/screens/list/SwipeListEditScreen"
+import { SwipeRowSectionScreen } from "src/screens/list/SwipeRowSectionScreen"
+import { SwipeListSectionScreen } from "src/screens/list/SwipeListSectionScreen"
+
+import { FontScreen } from "src/screens/other/FontScreen"
+import { FlexScreen } from "src/screens/other/FlexScreen"
+import { ImageScreen } from "src/screens/other/ImageScreen"
+import { ModalScreen } from "src/screens/other/ModalScreen"
+import { UnmountScreen } from "src/screens/other/UnmountScreen"
+import { PressableScreen } from "src/screens/other/PressableScreen"
+import { ConstantsScreen } from "src/screens/other/ConstantsScreen"
+import { TextInputScreen } from "src/screens/other/TextInputScreen"
+import { AnimatedHelloScreen } from "src/screens/other/AnimatedHelloScreen"
+import { HelloElementsScreen } from "src/screens/other/HelloElementsScreen"
+import { AnimatedButtonScreen } from "src/screens/other/AnimatedButtonScreen"
 
 const styles = StyleSheet.create({
   item: {
@@ -35,25 +36,25 @@ const styles = StyleSheet.create({
 
 const screenMap = () => {
   const map = new Map<string, JSX.Element>()
+  map.set("SwipeRowScreen", <SwipeRowScreen />)
+  map.set("FlatListScreen", <FlatListScreen />)
+  map.set("SwipeListScreen", <SwipeListScreen />)
+  map.set("SectionListScreen", <SectionListScreen />)
+  map.set("SwipeAnimatedScreen", <SwipeAnimatedScreen />)
+  map.set("SwipeListEditScreen", <SwipeListEditScreen />)
+  map.set("SwipeRowSectionScreen", <SwipeRowSectionScreen />)
+  map.set("SwipeListSectionScreen", <SwipeListSectionScreen />)
   map.set("FontScreen", <FontScreen />)
   map.set("FlexScreen", <FlexScreen />)
   map.set("ImageScreen", <ImageScreen />)
   map.set("ModalScreen", <ModalScreen />)
   map.set("UnmountScreen", <UnmountScreen />)
-  map.set("SwipeRowScreen", <SwipeRowScreen />)
-  map.set("FlatListScreen", <FlatListScreen />)
-  map.set("SwipeListScreen", <SwipeListScreen />)
   map.set("PressableScreen", <PressableScreen />)
   map.set("ConstantsScreen", <ConstantsScreen />)
   map.set("TextInputScreen", <TextInputScreen />)
-  map.set("SectionListScreen", <SectionListScreen />)
-  map.set("SwipeAnimatedScreen", <SwipeAnimatedScreen />)
   map.set("AnimatedHelloScreen", <AnimatedHelloScreen />)
   map.set("HelloElementsScreen", <HelloElementsScreen />)
-  map.set("SwipeListEditScreen", <SwipeListEditScreen />)
   map.set("AnimatedButtonScreen", <AnimatedButtonScreen />)
-  map.set("SwipeRowSectionScreen", <SwipeRowSectionScreen />)
-  map.set("SwipeListSectionScreen", <SwipeListSectionScreen />)
   return map
 }
 
