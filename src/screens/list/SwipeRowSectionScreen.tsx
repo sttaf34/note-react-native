@@ -1,4 +1,5 @@
 import React from "react"
+import { SwipeRow, SwipeListView } from "react-native-swipe-list-view"
 import {
   Text,
   View,
@@ -6,7 +7,7 @@ import {
   SectionListData,
   SectionListRenderItemInfo,
 } from "react-native"
-import { SwipeRow, SwipeListView } from "react-native-swipe-list-view"
+import { MarginText } from "src/components/MarginText"
 
 type Food = {
   id: string
@@ -18,7 +19,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#dddddd",
   },
   renderItem: {
-    alignItems: "center",
     backgroundColor: "#ffffff",
     justifyContent: "center",
     height: 50,
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   },
 })
 
-const data: ReadonlyArray<SectionListData<Food>> = [
+const sections: ReadonlyArray<SectionListData<Food>> = [
   {
     key: "Others",
     data: [{ id: "empty", name: "empty" }],
@@ -76,7 +76,7 @@ export const SwipeRowSectionScreen: React.FC = () => {
         <SwipeRow disableLeftSwipe disableRightSwipe>
           <View style={styles.renderHiddenItem} />
           <View style={styles.renderItem}>
-            <Text>スワイプしない</Text>
+            <MarginText>スワイプしない</MarginText>
           </View>
         </SwipeRow>
       )
@@ -89,27 +89,19 @@ export const SwipeRowSectionScreen: React.FC = () => {
           <Text>Hello!</Text>
         </View>
         <View style={styles.renderItem}>
-          <Text>
+          <MarginText>
             {index}. {food.name}
-          </Text>
+          </MarginText>
         </View>
       </SwipeRow>
     )
-  }
-
-  const renderSectionHeader = (info: {
-    section: SectionListData<Food>
-  }): JSX.Element => {
-    const { section } = info
-    return <Text style={styles.renderSectionHeader}>{section.key}</Text>
   }
 
   return (
     <>
       <SwipeListView
         useSectionList
-        sections={data}
-        renderSectionHeader={renderSectionHeader}
+        sections={sections}
         renderItem={renderItem}
       />
     </>
