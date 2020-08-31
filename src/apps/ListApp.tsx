@@ -8,6 +8,7 @@ import { FontScreen } from "src/screens/FontScreen"
 import { FlexScreen } from "src/screens/FlexScreen"
 import { ImageScreen } from "src/screens/ImageScreen"
 import { ModalScreen } from "src/screens/ModalScreen"
+import { UnmountScreen } from "src/screens/UnmountScreen"
 import { SwipeRowScreen } from "src/screens/SwipeRowScreen"
 import { FlatListScreen } from "src/screens/FlatListScreen"
 import { SwipeListScreen } from "src/screens/SwipeListScreen"
@@ -38,6 +39,7 @@ const screenMap = () => {
   map.set("FlexScreen", <FlexScreen />)
   map.set("ImageScreen", <ImageScreen />)
   map.set("ModalScreen", <ModalScreen />)
+  map.set("UnmountScreen", <UnmountScreen />)
   map.set("SwipeRowScreen", <SwipeRowScreen />)
   map.set("FlatListScreen", <FlatListScreen />)
   map.set("SwipeListScreen", <SwipeListScreen />)

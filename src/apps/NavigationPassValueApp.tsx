@@ -2,7 +2,7 @@
 
 import React from "react"
 import { Button } from "react-native"
-import { Text } from "src/components/Text"
+import { MarginText } from "src/components/MarginText"
 import {
   useRoute,
   RouteProp,
@@ -56,7 +56,7 @@ const HelloScreen: React.FC = () => {
 
   return (
     <>
-      <Text>受け取った値は [{value}]</Text>
+      <MarginText>受け取った値は [{value}]</MarginText>
       <Button title="Push!" onPress={onPress} />
     </>
   )
@@ -88,7 +88,7 @@ const GoodbyeScreen: React.FC = () => {
 
   return (
     <>
-      <Text>受け取った値は [{id}]</Text>
+      <MarginText>受け取った値は [{id}]</MarginText>
       <Button title="Back!" onPress={onPress} />
     </>
   )
