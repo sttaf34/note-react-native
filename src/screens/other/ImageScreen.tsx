@@ -25,7 +25,7 @@ export const ImageScreen: React.FC = () => {
     <>
       <Image
         style={styles.image}
-        source={require("../../assets/favicon.png")}
+        source={require("../../../assets/favicon.png")}
       />
       <Image
         style={styles.image}

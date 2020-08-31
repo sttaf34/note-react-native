@@ -1,11 +1,13 @@
 import React from "react"
 import {
-  Text,
   View,
   SectionList,
   SectionListData,
   SectionListRenderItemInfo,
 } from "react-native"
+
+import { Line } from "src/components/Line"
+import { MarginText } from "src/components/MarginText"
 
 type Food = {
   id: string
@@ -36,9 +38,9 @@ export const SectionListScreen: React.FC = () => {
     const { item: food, index, section } = info
     return (
       <View>
-        <Text>
+        <MarginText>
           {section.key} / {index} / {food.id} / {food.name}
-        </Text>
+        </MarginText>
       </View>
     )
   }
@@ -47,7 +49,11 @@ export const SectionListScreen: React.FC = () => {
     section: SectionListData<Food>
   }): React.ReactElement => {
     const { section } = info
-    return <Text>{section.key}</Text>
+    return <MarginText>{section.key}</MarginText>
+  }
+
+  const itemSeparatorComponent = (): JSX.Element => {
+    return <Line />
   }
 
   return (
@@ -56,6 +62,8 @@ export const SectionListScreen: React.FC = () => {
       sections={data}
       renderItem={renderItem}
       renderSectionHeader={renderSectionHeader}
+      ItemSeparatorComponent={itemSeparatorComponent}
+      SectionSeparatorComponent={itemSeparatorComponent}
     />
   )
 }
