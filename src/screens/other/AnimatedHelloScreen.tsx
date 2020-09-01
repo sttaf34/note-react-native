@@ -30,7 +30,8 @@ const FadeInView: React.FC<unknown> = (props: React.Props<unknown>) => {
 
   React.useEffect(() => {
     Animated.timing(opacityValue, config).start()
-  }, [opacityValue])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <Animated.View style={{ opacity: opacityValue }}>{children}</Animated.View>

@@ -21,6 +21,7 @@ import { UnmountScreen } from "src/screens/other/UnmountScreen"
 import { PressableScreen } from "src/screens/other/PressableScreen"
 import { ConstantsScreen } from "src/screens/other/ConstantsScreen"
 import { TextInputScreen } from "src/screens/other/TextInputScreen"
+import { AnimatedUseScreen } from "src/screens/other/AnimatedUseScreen"
 import { AnimatedHelloScreen } from "src/screens/other/AnimatedHelloScreen"
 import { HelloElementsScreen } from "src/screens/other/HelloElementsScreen"
 import { AnimatedButtonScreen } from "src/screens/other/AnimatedButtonScreen"
@@ -52,6 +53,7 @@ const screenMap = () => {
   map.set("PressableScreen", <PressableScreen />)
   map.set("ConstantsScreen", <ConstantsScreen />)
   map.set("TextInputScreen", <TextInputScreen />)
+  map.set("AnimatedUseScreen", <AnimatedUseScreen />)
   map.set("AnimatedHelloScreen", <AnimatedHelloScreen />)
   map.set("HelloElementsScreen", <HelloElementsScreen />)
   map.set("AnimatedButtonScreen", <AnimatedButtonScreen />)
