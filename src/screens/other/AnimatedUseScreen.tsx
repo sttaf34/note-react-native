@@ -1,5 +1,5 @@
 import React from "react"
-import { View, Button, Animated } from "react-native"
+import { View, Easing, Button, Animated, StyleSheet } from "react-native"
 
 import { MarginText } from "src/components/MarginText"
 import { MarginDiveder } from "src/components/MarginDiveder"
@@ -21,19 +21,31 @@ const useAnimationFadeOut = () => {
     Animated.timing(opacityValue, config).start()
   }
 
-  return { opacityValue, start }
+  const styleAnimation = {
+    opacity: opacityValue,
+  }
+
+  return { opacityValue, styleAnimation, start }
 }
 
 const HowToUseAnimationFadeOut: React.FC = () => {
-  const { opacityValue, start } = useAnimationFadeOut()
+  const { styleAnimation, start } = useAnimationFadeOut()
 
-  const style = {
-    padding: 10,
-    paddingBottom: 0,
-  }
+  const styles = StyleSheet.create({
+    view: {
+      padding: 10,
+      paddingBottom: 0,
+    },
+  })
+
+  // この書き方はちゃんと動くけど補完が効かない
+  // const style = {
+  //   padding: 10,
+  //   paddingBottom: 0,
+  // }
 
   return (
-    <Animated.View style={[style, { opacity: opacityValue }]}>
+    <Animated.View style={[styles.view, styleAnimation]}>
       <Button title="Fade Out Myself" onPress={() => start()} />
     </Animated.View>
   )
@@ -55,6 +67,12 @@ const useAnimationsFadeIn = (keys: string[]) => {
     useNativeDriver: true,
   }
 
+  const styleAnimations = (key: string) => {
+    return {
+      opacity: opacityValues[key],
+    }
+  }
+
   const start = (key: string) => {
     const opacityValue = opacityValues[key]
     if (opacityValue) {
@@ -62,19 +80,18 @@ const useAnimationsFadeIn = (keys: string[]) => {
     }
   }
 
-  return { opacityValues, start }
+  return { opacityValues, styleAnimations, start }
 }
 
 const HowToUseAnimationsFadeIn: React.FC = () => {
-  const keys = ["AAA", "BBB", "CCC"]
-  const { opacityValues, start } = useAnimationsFadeIn(keys)
+  const keys = ["AAA", "BBB"]
+  const { styleAnimations, start } = useAnimationsFadeIn(keys)
 
   const list = keys.map((key) => {
-    const opacityValue = opacityValues[key]
     return (
       <View key={key}>
         <Button title="Fade In" onPress={() => start(key)} />
-        <Animated.View style={{ opacity: opacityValue }}>
+        <Animated.View style={[styleAnimations(key)]}>
           <MarginText>Hello!</MarginText>
         </Animated.View>
       </View>
@@ -82,6 +99,95 @@ const HowToUseAnimationsFadeIn: React.FC = () => {
   })
 
   return <>{list}</>
+}
+
+//
+// 一つのコンポーネントをスケールイン＆処理実行
+//
+
+const useAnimationScaleIn = () => {
+  const scaleValue = new Animated.Value(1)
+
+  const config: Animated.TimingAnimationConfig = {
+    toValue: 0,
+    duration: 1500,
+    useNativeDriver: true,
+  }
+
+  const start = (callback: Animated.EndCallback) => {
+    Animated.timing(scaleValue, config).start(callback)
+  }
+
+  const styleAnimation = {
+    transform: [{ scale: scaleValue }],
+  }
+
+  return { scaleValue, styleAnimation, start }
+}
+
+const HowToUseAnimationScaleIn: React.FC = () => {
+  const { start, styleAnimation } = useAnimationScaleIn()
+
+  const styles = StyleSheet.create({
+    view: {
+      backgroundColor: "#f2f2f2",
+    },
+  })
+
+  const endCallback = () => {
+    console.log("データの削除！")
+  }
+
+  return (
+    <Animated.View style={[styles.view, styleAnimation]}>
+      <Button title="Scale In Myself" onPress={() => start(endCallback)} />
+    </Animated.View>
+  )
+}
+
+//
+// 一つのコンポーネントの高さをゼロにする
+//
+
+const useAnimationHeightDown = (initialHeight: number) => {
+  const height = new Animated.Value(initialHeight)
+
+  // イージングの設定はこれらを見ながらやる
+  // https://reactnative.dev/docs/easing
+  // https://easings.net/
+
+  const config: Animated.TimingAnimationConfig = {
+    toValue: 0,
+    duration: 500,
+    useNativeDriver: false,
+    easing: Easing.out(Easing.exp),
+  }
+
+  const start = () => {
+    Animated.timing(height, config).start()
+  }
+
+  const styleAnimation = {
+    height,
+  }
+
+  return { styleAnimation, start }
+}
+
+const HowToUseAnimationHeight: React.FC = () => {
+  const { start, styleAnimation } = useAnimationHeightDown(100)
+
+  const styles = StyleSheet.create({
+    view: {
+      backgroundColor: "pink",
+    },
+  })
+
+  return (
+    <Animated.View style={[styles.view, styleAnimation]}>
+      <Button title="Height" onPress={() => start()} />
+    </Animated.View>
+  )
 }
 
 //
@@ -95,6 +201,8 @@ export const AnimatedUseScreen: React.FC = () => {
       <MarginDiveder />
       <HowToUseAnimationsFadeIn />
       <MarginDiveder />
+      <HowToUseAnimationHeight />
+      <HowToUseAnimationScaleIn />
     </>
   )
 }
