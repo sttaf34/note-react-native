@@ -1,11 +1,18 @@
 import React from "react"
-import { View, Easing, Button, Animated, StyleSheet } from "react-native"
+import {
+  View,
+  Easing,
+  Button,
+  Animated,
+  StyleSheet,
+  ScrollView,
+} from "react-native"
 
 import { MarginText } from "src/components/MarginText"
 import { MarginDiveder } from "src/components/MarginDiveder"
 
 //
-// 一つのコンポーネントをフェードアウト（消える）
+// #region 一つのコンポーネントをフェードアウト（消える）
 //
 
 const useAnimationFadeOut = () => {
@@ -51,8 +58,10 @@ const HowToUseAnimationFadeOut: React.FC = () => {
   )
 }
 
+// #endregion
+
 //
-// 複数のコンポーネントをフェードイン（表示）
+// #region 複数のコンポーネントをフェードイン（表示）
 //
 
 const useAnimationsFadeIn = (keys: string[]) => {
@@ -101,8 +110,10 @@ const HowToUseAnimationsFadeIn: React.FC = () => {
   return <>{list}</>
 }
 
+// #endregion
+
 //
-// 一つのコンポーネントをスケールイン＆処理実行
+// #region 一つのコンポーネントをスケールイン＆処理実行
 //
 
 const useAnimationScaleIn = () => {
@@ -145,8 +156,56 @@ const HowToUseAnimationScaleIn: React.FC = () => {
   )
 }
 
+// #endregion
+
 //
-// 一つのコンポーネントの高さをゼロにする
+// #region 一つのコンポーネントの位置を移動
+//
+
+const useAnimationPosition = () => {
+  const positionX = new Animated.Value(0)
+  const positionY = new Animated.Value(0)
+
+  const config: Animated.TimingAnimationConfig = {
+    toValue: 30,
+    duration: 1500,
+    useNativeDriver: true,
+  }
+
+  const start = () => {
+    Animated.parallel([
+      Animated.timing(positionX, config),
+      Animated.timing(positionY, config),
+    ]).start()
+  }
+
+  const styleAnimation = {
+    transform: [{ translateX: positionX }, { translateY: positionY }],
+  }
+
+  return { styleAnimation, start }
+}
+
+const HowToUseAnimationPosition: React.FC = () => {
+  const { start, styleAnimation } = useAnimationPosition()
+
+  const styles = StyleSheet.create({
+    view: {
+      backgroundColor: "skyblue",
+    },
+  })
+
+  return (
+    <Animated.View style={[styles.view, styleAnimation]}>
+      <Button title="Move" onPress={() => start()} />
+    </Animated.View>
+  )
+}
+
+// #endregion
+
+//
+// #region 一つのコンポーネントの高さをゼロにする
 //
 
 const useAnimationHeightDown = (initialHeight: number) => {
@@ -155,6 +214,8 @@ const useAnimationHeightDown = (initialHeight: number) => {
   // イージングの設定はこれらを見ながらやる
   // https://reactnative.dev/docs/easing
   // https://easings.net/
+
+  // SwipeListView との併用だと動かないかも
 
   const config: Animated.TimingAnimationConfig = {
     toValue: 0,
@@ -190,19 +251,70 @@ const HowToUseAnimationHeight: React.FC = () => {
   )
 }
 
+// #endregion
+
 //
-// スクリーン
+// #region 一つのコンポーネントの色を変化
+//
+
+const useAnimationInterpolcate = () => {
+  const value = new Animated.Value(0) // inputRange の最初の値
+
+  const interPolateColor = value.interpolate({
+    inputRange: [0, 100, 200, 300, 400],
+    outputRange: ["#0000ff", "#ffffff", "#ff0000", "#00ff00", "#000000"],
+  })
+
+  const config: Animated.TimingAnimationConfig = {
+    toValue: 400, // inputRange の最後の値
+    duration: 3000,
+    useNativeDriver: false,
+  }
+
+  const start = () => {
+    Animated.timing(value, config).start()
+  }
+
+  const styleAnimation = {
+    color: interPolateColor,
+  }
+
+  return { styleAnimation, start }
+}
+
+const HowToUseAnimationInterpolate: React.FC = () => {
+  const { start, styleAnimation } = useAnimationInterpolcate()
+
+  return (
+    <>
+      <Button title="Change Text Color" onPress={() => start()} />
+      <Animated.Text style={[styleAnimation]}>こんにちは！</Animated.Text>
+    </>
+  )
+}
+
+// #endregion
+
+//
+// #region スクリーン
 //
 
 export const AnimatedUseScreen: React.FC = () => {
   return (
-    <>
+    <ScrollView>
       <HowToUseAnimationFadeOut />
       <MarginDiveder />
       <HowToUseAnimationsFadeIn />
       <MarginDiveder />
-      <HowToUseAnimationHeight />
       <HowToUseAnimationScaleIn />
-    </>
+      <MarginDiveder />
+      <HowToUseAnimationPosition />
+      <MarginDiveder />
+      <HowToUseAnimationInterpolate />
+      <MarginDiveder />
+      <HowToUseAnimationHeight />
+    </ScrollView>
   )
 }
+
+// #endregion
