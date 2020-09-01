@@ -113,7 +113,7 @@ const HowToUseAnimationsFadeIn: React.FC = () => {
 // #endregion
 
 //
-// #region 一つのコンポーネントをスケールイン＆処理実行
+// #region 一つのコンポーネントをスケールイン（縮小）＆処理実行
 //
 
 const useAnimationScaleIn = () => {

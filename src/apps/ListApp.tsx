@@ -25,6 +25,7 @@ import { AnimatedUseScreen } from "src/screens/other/AnimatedUseScreen"
 import { AnimatedHelloScreen } from "src/screens/other/AnimatedHelloScreen"
 import { HelloElementsScreen } from "src/screens/other/HelloElementsScreen"
 import { AnimatedButtonScreen } from "src/screens/other/AnimatedButtonScreen"
+import { AnimatedScaleAnchorScreen } from "src/screens/other/AnimatedScaleAnchorScreen"
 
 const styles = StyleSheet.create({
   item: {
@@ -57,6 +58,7 @@ const screenMap = () => {
   map.set("AnimatedHelloScreen", <AnimatedHelloScreen />)
   map.set("HelloElementsScreen", <HelloElementsScreen />)
   map.set("AnimatedButtonScreen", <AnimatedButtonScreen />)
+  map.set("AnimatedScaleAnchorScreen", <AnimatedScaleAnchorScreen />)
   return map
 }
 
