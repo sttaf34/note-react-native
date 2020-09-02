@@ -1,8 +1,15 @@
 import React from "react"
 import { Text, View, Button, StyleSheet, ScrollView } from "react-native"
-import { NavigationContainer } from "@react-navigation/native"
-import { createStackNavigator } from "@react-navigation/stack"
-import { ScreenProps } from "src/type"
+import {
+  useRoute,
+  RouteProp,
+  useNavigation,
+  NavigationContainer,
+} from "@react-navigation/native"
+import {
+  StackNavigationProp,
+  createStackNavigator,
+} from "@react-navigation/stack"
 
 import { SwipeRowScreen } from "src/screens/list/SwipeRowScreen"
 import { FlatListScreen } from "src/screens/list/FlatListScreen"
@@ -12,6 +19,7 @@ import { SwipeAnimatedScreen } from "src/screens/list/SwipeAnimatedScreen"
 import { SwipeListEditScreen } from "src/screens/list/SwipeListEditScreen"
 import { SwipeRowSectionScreen } from "src/screens/list/SwipeRowSectionScreen"
 import { SwipeListSectionScreen } from "src/screens/list/SwipeListSectionScreen"
+import { FlatListAnimatedScreen } from "src/screens/list/FlatListAnimatedScreen"
 
 import { FontScreen } from "src/screens/other/FontScreen"
 import { FlexScreen } from "src/screens/other/FlexScreen"
@@ -27,15 +35,6 @@ import { HelloElementsScreen } from "src/screens/other/HelloElementsScreen"
 import { AnimatedButtonScreen } from "src/screens/other/AnimatedButtonScreen"
 import { AnimatedScaleAnchorScreen } from "src/screens/other/AnimatedScaleAnchorScreen"
 
-const styles = StyleSheet.create({
-  item: {
-    margin: 4,
-  },
-  scrollView: {
-    backgroundColor: "white",
-  },
-})
-
 const screenMap = () => {
   const map = new Map<string, JSX.Element>()
   map.set("SwipeRowScreen", <SwipeRowScreen />)
@@ -46,6 +45,7 @@ const screenMap = () => {
   map.set("SwipeListEditScreen", <SwipeListEditScreen />)
   map.set("SwipeRowSectionScreen", <SwipeRowSectionScreen />)
   map.set("SwipeListSectionScreen", <SwipeListSectionScreen />)
+  map.set("FlatListAnimatedScreen", <FlatListAnimatedScreen />)
   map.set("FontScreen", <FontScreen />)
   map.set("FlexScreen", <FlexScreen />)
   map.set("ImageScreen", <ImageScreen />)
@@ -62,34 +62,48 @@ const screenMap = () => {
   return map
 }
 
-const DetailScreen: React.FC<ScreenProps> = ({ route }: ScreenProps) => {
-  const { screenName } = route.params || { screenName: "ImageScreen" }
-
-  const element = screenMap().get(screenName)
-  if (element) {
-    return element
-  }
-  return <Text>スクリーンが見つかりません</Text>
+type StackParamList = {
+  List: undefined
+  Detail: { screenName: string }
 }
 
-const ListScreen: React.FC<ScreenProps> = ({ navigation }: ScreenProps) => {
+const Stack = createStackNavigator<StackParamList>()
+
+export type DetailScreenNavigationProp = StackNavigationProp<
+  StackParamList,
+  "Detail"
+>
+type DetailScreenRouteProp = RouteProp<StackParamList, "Detail">
+
+const ListScreen: React.FC = () => {
+  const styles = StyleSheet.create({
+    item: {
+      margin: 4,
+    },
+  })
+
+  const { navigate } = useNavigation<DetailScreenNavigationProp>()
   const screenNames = Array.from(screenMap().keys())
   const lis = screenNames.map((screenName) => (
     <View style={styles.item} key={screenName}>
       <Button
         title={screenName}
         onPress={() =>
-          navigation.navigate("Detail", {
+          navigate("Detail", {
             screenName,
           })
         }
       />
     </View>
   ))
-  return <ScrollView style={styles.scrollView}>{lis}</ScrollView>
+  return <ScrollView>{lis}</ScrollView>
 }
 
-const Stack = createStackNavigator()
+const DetailScreen: React.FC = () => {
+  const { params } = useRoute<DetailScreenRouteProp>()
+  const element = screenMap().get(params.screenName)
+  return element || <Text>スクリーンが見つかりません</Text>
+}
 
 export const ListApp: React.FC = () => {
   return (
