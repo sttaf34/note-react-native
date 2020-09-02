@@ -20,6 +20,7 @@ import { SwipeListEditScreen } from "src/screens/list/SwipeListEditScreen"
 import { SwipeRowSectionScreen } from "src/screens/list/SwipeRowSectionScreen"
 import { SwipeListSectionScreen } from "src/screens/list/SwipeListSectionScreen"
 import { FlatListAnimatedScreen } from "src/screens/list/FlatListAnimatedScreen"
+import { FlatListFirestoreScreen } from "src/screens/list/FlatListFirestoreScreen"
 
 import { FontScreen } from "src/screens/other/FontScreen"
 import { FlexScreen } from "src/screens/other/FlexScreen"
@@ -46,6 +47,7 @@ const screenMap = () => {
   map.set("SwipeRowSectionScreen", <SwipeRowSectionScreen />)
   map.set("SwipeListSectionScreen", <SwipeListSectionScreen />)
   map.set("FlatListAnimatedScreen", <FlatListAnimatedScreen />)
+  map.set("FlatListFirestoreScreen", <FlatListFirestoreScreen />)
   map.set("FontScreen", <FontScreen />)
   map.set("FlexScreen", <FlexScreen />)
   map.set("ImageScreen", <ImageScreen />)
