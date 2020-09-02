@@ -1,27 +1,32 @@
 import React from "react"
-import { Text, View, FlatList, ListRenderItemInfo } from "react-native"
+import { View, FlatList, ListRenderItemInfo } from "react-native"
 
-type Fruit = {
-  id: string
-  name: string
-}
-
-const fruits: Fruit[] = [
-  { id: "1", name: "apple" },
-  { id: "2", name: "banana" },
-  { id: "3", name: "grape" },
-]
+import { Fruit, fruits as initialFruits } from "src/constants/fruits"
+import { MarginText } from "src/components/MarginText"
+import { useRightButton } from "src/common/navigationHooks"
 
 export const FlatListScreen: React.FC = () => {
-  // fruits のそれぞれの要素を元に、
-  // JSX.Element を返す関数を <FlatList> に渡すような仕組み
+  const [fruits, setFruits] = React.useState(initialFruits)
+
+  const addFruit = () => {
+    const newFruit: Fruit = {
+      id: String(Math.random()),
+      key: String(Math.random()),
+      name: "cranberry",
+    }
+    const newFruits = [newFruit, ...fruits]
+    setFruits(newFruits)
+  }
+
+  useRightButton(addFruit, "追加")
+
   const renderItem = (info: ListRenderItemInfo<Fruit>): JSX.Element => {
-    const { item, index } = info
+    const { item: fruit } = info
     return (
       <View>
-        <Text>
-          {index}. {item.name}
-        </Text>
+        <MarginText>
+          {fruit.id} / {fruit.name}
+        </MarginText>
       </View>
     )
   }
