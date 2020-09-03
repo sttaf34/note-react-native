@@ -8,18 +8,14 @@ import {
   Score,
   ScoreContext,
   ScoreContextProvider,
-} from "src/others/scoreContext"
+} from "src/others/scoreStorageContext"
 
 export const ScreenInner: React.FC = () => {
   YellowBox.ignoreWarnings(["Setting a timer"])
 
   const context = useContext(ScoreContext)
-  const { isLoading, scores, createScore, updateScore, deleteScore } = context
+  const { scores, createScore, updateScore, deleteScore } = context
   useRightButton(createScore, "追加")
-
-  if (isLoading) {
-    return <MarginText>通信中です</MarginText>
-  }
 
   if (scores.length === 0) {
     return <MarginText>データがありません</MarginText>
@@ -41,11 +37,13 @@ export const ScreenInner: React.FC = () => {
   }
 
   return (
-    <FlatList
-      data={scores}
-      renderItem={renderItem}
-      keyExtractor={(score) => score.id}
-    />
+    <>
+      <FlatList
+        data={scores}
+        renderItem={renderItem}
+        keyExtractor={(score) => score.id}
+      />
+    </>
   )
 }
 
