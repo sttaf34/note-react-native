@@ -27,6 +27,7 @@ import { FlexScreen } from "src/screens/other/FlexScreen"
 import { ImageScreen } from "src/screens/other/ImageScreen"
 import { ModalScreen } from "src/screens/other/ModalScreen"
 import { UnmountScreen } from "src/screens/other/UnmountScreen"
+import { FirestoreScreen } from "src/screens/other/FirestoreScreen"
 import { PressableScreen } from "src/screens/other/PressableScreen"
 import { ConstantsScreen } from "src/screens/other/ConstantsScreen"
 import { TextInputScreen } from "src/screens/other/TextInputScreen"
@@ -40,6 +41,7 @@ const screenMap = () => {
   const map = new Map<string, JSX.Element>()
   map.set("SwipeRowScreen", <SwipeRowScreen />)
   map.set("FlatListScreen", <FlatListScreen />)
+  map.set("FirestoreScreen", <FirestoreScreen />)
   map.set("SwipeListScreen", <SwipeListScreen />)
   map.set("SectionListScreen", <SectionListScreen />)
   map.set("SwipeAnimatedScreen", <SwipeAnimatedScreen />)
