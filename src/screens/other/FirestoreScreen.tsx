@@ -4,12 +4,12 @@ import firebase from "firebase"
 import { ScrollView } from "react-native"
 
 import { MarginText } from "src/components/MarginText"
-import { useRightButton } from "src/common/navigationHooks"
+import { useRightButton } from "src/others/navigationHooks"
 import {
   Vegetable,
   serverTimeStamp,
   vegetablesReference,
-} from "src/common/vegetable"
+} from "src/others/vegetable"
 
 type QueryDocumentSnapshot = firebase.firestore.QueryDocumentSnapshot<
   firebase.firestore.DocumentData

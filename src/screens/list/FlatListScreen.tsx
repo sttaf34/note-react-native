@@ -3,7 +3,7 @@ import { View, FlatList, ListRenderItemInfo } from "react-native"
 
 import { Fruit, fruits as initialFruits } from "src/constants/fruits"
 import { MarginText } from "src/components/MarginText"
-import { useRightButton } from "src/common/navigationHooks"
+import { useRightButton } from "src/others/navigationHooks"
 
 export const FlatListScreen: React.FC = () => {
   const [fruits, setFruits] = React.useState(initialFruits)

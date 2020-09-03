@@ -3,9 +3,9 @@ import dayjs from "dayjs"
 import firebase from "firebase"
 import { ScrollView, Button } from "react-native"
 
-import { firestore } from "src/common/firebase"
+import { firestore } from "src/others/firebase"
 import { MarginText } from "src/components/MarginText"
-import { useRightButton } from "src/common/navigationHooks"
+import { useRightButton } from "src/others/navigationHooks"
 
 type QueryDocumentSnapshot = firebase.firestore.QueryDocumentSnapshot<
   firebase.firestore.DocumentData

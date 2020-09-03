@@ -3,7 +3,7 @@ import dayjs from "dayjs"
 import firebase from "firebase"
 import { useCollectionData } from "react-firebase-hooks/firestore"
 
-import { firestore } from "src/common/firebase"
+import { firestore } from "src/others/firebase"
 
 export const vegetablesReference = firestore.collection("vegetables")
 

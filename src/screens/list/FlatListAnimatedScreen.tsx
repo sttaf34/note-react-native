@@ -9,7 +9,7 @@ import {
 
 import { Fruit, fruits as initialFruits } from "src/constants/fruits"
 import { MarginText } from "src/components/MarginText"
-import { useRightButton } from "src/common/navigationHooks"
+import { useRightButton } from "src/others/navigationHooks"
 
 const styles = StyleSheet.create({
   flatlist: {
