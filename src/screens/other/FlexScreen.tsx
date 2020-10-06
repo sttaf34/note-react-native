@@ -34,7 +34,7 @@ const Hello: React.FC = () => {
   )
 }
 
-const FixedFluid: React.FC = () => {
+const FixedFluidRow: React.FC = () => {
   // 左右をピクセル指定、中を残り全部にするように指定
   const styles = StyleSheet.create({
     row: {
@@ -76,6 +76,49 @@ const FixedFluid: React.FC = () => {
   )
 }
 
+const FixedFluidColumn: React.FC = () => {
+  // 上下をピクセル指定、中を残り全部にするように指定
+  const styles = StyleSheet.create({
+    column: {
+      height: "100%",
+      width: "20%",
+      flexDirection: "column",
+      backgroundColor: "white",
+    },
+    top: {
+      width: "100%",
+      height: 40,
+      backgroundColor: "#eeeeee",
+    },
+    center: {
+      flex: 1,
+      height: "100%",
+      padding: 8,
+      backgroundColor: "#dddddd",
+    },
+    bottom: {
+      width: "100%",
+      height: 40,
+      backgroundColor: "#cccccc",
+    },
+  })
+  return (
+    <View style={styles.column}>
+      <View style={styles.top}>
+        <Text />
+      </View>
+      <View style={styles.center}>
+        <Text>
+          あいうえおかきくけこさしすせそあいうえおかきくけこさしすせそあいうえおかきくけこさしすせそ
+        </Text>
+      </View>
+      <View style={styles.bottom}>
+        <Text />
+      </View>
+    </View>
+  )
+}
+
 export const FlexScreen: React.FC = () => {
   const styles = StyleSheet.create({
     container: {
@@ -89,7 +132,8 @@ export const FlexScreen: React.FC = () => {
   return (
     <View style={styles.container}>
       <Hello />
-      <FixedFluid />
+      <FixedFluidRow />
+      <FixedFluidColumn />
     </View>
   )
 }
