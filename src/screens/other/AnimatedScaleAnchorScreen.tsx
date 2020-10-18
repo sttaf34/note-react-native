@@ -10,6 +10,7 @@ import { MarginDiveder } from "src/components/MarginDiveder"
 const useAnimationInterpolateScaleOut = (width: number, height: number) => {
   const value = new Animated.Value(0)
 
+  // 引数のデフォルトの四角形のサイズから、拡大アニメーション用の値を算出
   const scaleX = 5
   const scaleY = 5
   const translateX = (width * scaleX - width) / 2
@@ -75,7 +76,7 @@ const HowToUseAnimationInterpolateScaleOut: React.FC = () => {
 
   return (
     <>
-      <Button title="Change Something" onPress={() => start()} />
+      <Button title="拡大 " onPress={() => start()} />
       <Animated.View style={[styles.view, styleAnimation]} />
     </>
   )
@@ -150,7 +151,7 @@ const HowToUseAnimationInterpolateScaleIn: React.FC = () => {
 
   return (
     <>
-      <Button title="Change Something" onPress={() => start()} />
+      <Button title="縮小" onPress={() => start()} />
       <Animated.View style={[styles.view, styleAnimation]} />
     </>
   )
