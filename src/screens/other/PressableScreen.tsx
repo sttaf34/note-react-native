@@ -1,10 +1,15 @@
 /* eslint-disable no-alert */
 
 import React from "react"
-import { View, Text, StyleSheet, TouchableHighlight } from "react-native"
+import {
+  View,
+  Text,
+  Pressable,
+  StyleSheet,
+  TouchableHighlight,
+  PressableStateCallbackType,
+} from "react-native"
 import { Divider } from "react-native-elements"
-
-// Pressable は Expo SDK 39 で多分使えるようになる
 
 const styles = StyleSheet.create({
   button: {
@@ -21,32 +26,38 @@ const styles = StyleSheet.create({
 })
 
 export const PressableScreen: React.FC = () => {
+  const style = (state: PressableStateCallbackType) => {
+    const { pressed } = state
+    if (pressed) {
+      return {
+        margin: 12,
+        backgroundColor: "rgb(210, 230, 255)",
+      }
+    }
+    return {
+      margin: 12,
+      backgroundColor: "#ffffee",
+    }
+  }
+
   return (
     <>
-      <View>
-        <TouchableHighlight
-          style={styles.button}
-          activeOpacity={0.6}
-          underlayColor="#DDDDDD"
-          onPress={() => alert("Pressed!")}
-        >
+      <Pressable style={style} onPress={() => alert("Pressed!")}>
+        <Text style={styles.text}>ボタン</Text>
+      </Pressable>
+
+      <TouchableHighlight
+        style={styles.button}
+        activeOpacity={0.6}
+        underlayColor="#DDDDDD"
+        onPress={() => alert("Pressed!")}
+      >
+        <View>
           <Text style={styles.text}>ボタン</Text>
-        </TouchableHighlight>
-      </View>
-      <View>
-        <TouchableHighlight
-          style={styles.button}
-          activeOpacity={0.6}
-          underlayColor="#DDDDDD"
-          onPress={() => alert("Pressed!")}
-        >
-          <View>
-            <Text style={styles.text}>ボタン</Text>
-            <Divider style={styles.divider} />
-            <Text style={styles.text}>ボタン</Text>
-          </View>
-        </TouchableHighlight>
-      </View>
+          <Divider style={styles.divider} />
+          <Text style={styles.text}>ボタン</Text>
+        </View>
+      </TouchableHighlight>
     </>
   )
 }
