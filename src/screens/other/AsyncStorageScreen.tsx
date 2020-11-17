@@ -6,6 +6,7 @@ import AsyncStorage from "@react-native-community/async-storage"
 const KEY_FOR_STRING = "KEY_FOR_STRING"
 const KEY_FOR_OBJECTS = "KEY_FOR_OBJECTS"
 const KEY_FOR_FIREBASE = "KEY_FOR_FIREBASE"
+const KEY_FOR_BOOLEAN = "KEY_FOR_BOOLEAN"
 
 type Score = {
   id: string
@@ -117,6 +118,32 @@ export const AsyncStorageScreen: React.FC = () => {
     }
   }
 
+  const setBooleanToStorage = async (isSomething: boolean) => {
+    try {
+      // get するときに都合が良い値にしている
+      // Boolean("true") => true, Boolean("") => false
+      const value = isSomething ? "true" : ""
+      await AsyncStorage.setItem(KEY_FOR_BOOLEAN, value)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const getBooleanFromStorage = async (): Promise<boolean> => {
+    try {
+      const value = await AsyncStorage.getItem(KEY_FOR_BOOLEAN)
+      return Boolean(value)
+    } catch (error) {
+      console.log(error)
+    }
+    return false
+  }
+
+  const onPressGetBooleanFromStorage = async () => {
+    const isSomething = await getBooleanFromStorage()
+    console.log(isSomething)
+  }
+
   return (
     <ScrollView>
       <Button title="setStringToStorage" onPress={setStringToStorage} />
@@ -130,6 +157,14 @@ export const AsyncStorageScreen: React.FC = () => {
       <Button
         title="getFirebaseObjectFromStorage"
         onPress={getFirebaseObjectFromStorage}
+      />
+      <Button
+        title="setBooleanToStorage"
+        onPress={() => setBooleanToStorage(true)}
+      />
+      <Button
+        title="getBooleanFromStorage"
+        onPress={onPressGetBooleanFromStorage}
       />
     </ScrollView>
   )
