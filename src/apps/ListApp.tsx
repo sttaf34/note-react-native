@@ -25,6 +25,7 @@ import { FlatListAnimatedScreen } from "src/screens/list/FlatListAnimatedScreen"
 import { FontScreen } from "src/screens/other/FontScreen"
 import { TextScreen } from "src/screens/other/TextScreen"
 import { FlexScreen } from "src/screens/other/FlexScreen"
+import { GraphScreen } from "src/screens/other/GraphScreen"
 import { ImageScreen } from "src/screens/other/ImageScreen"
 import { ModalScreen } from "src/screens/other/ModalScreen"
 import { UnmountScreen } from "src/screens/other/UnmountScreen"
@@ -56,6 +57,7 @@ const screenMap = () => {
   map.set("FontScreen", <FontScreen />)
   map.set("TextScreen", <TextScreen />)
   map.set("FlexScreen", <FlexScreen />)
+  map.set("GraphScreen", <GraphScreen />)
   map.set("ImageScreen", <ImageScreen />)
   map.set("ModalScreen", <ModalScreen />)
   map.set("UnmountScreen", <UnmountScreen />)

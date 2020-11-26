@@ -32,9 +32,11 @@
     "react-native-reanimated": "~1.13.0",
     "react-native-safe-area-context": "3.1.4",
     "react-native-screens": "~2.10.1",
+    "react-native-svg": "12.1.0",
     "react-native-swipe-list-view": "^3.2.3",
     "react-native-vector-icons": "^7.0.0",
-    "react-native-web": "~0.13.7"
+    "react-native-web": "~0.13.7",
+    "victory-native": "^35.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
