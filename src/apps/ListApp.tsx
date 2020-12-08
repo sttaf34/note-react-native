@@ -21,6 +21,7 @@ import { FlatListContextScreen } from "src/screens/list/FlatListContextScreen"
 import { SwipeRowSectionScreen } from "src/screens/list/SwipeRowSectionScreen"
 import { SwipeListSectionScreen } from "src/screens/list/SwipeListSectionScreen"
 import { FlatListAnimatedScreen } from "src/screens/list/FlatListAnimatedScreen"
+import { FlatListDraggableScreen } from "src/screens/list/FlatListDraggableScreen"
 
 import { FontScreen } from "src/screens/other/FontScreen"
 import { TextScreen } from "src/screens/other/TextScreen"
@@ -28,6 +29,7 @@ import { FlexScreen } from "src/screens/other/FlexScreen"
 import { GraphScreen } from "src/screens/other/GraphScreen"
 import { ImageScreen } from "src/screens/other/ImageScreen"
 import { ModalScreen } from "src/screens/other/ModalScreen"
+import { SqliteScreen } from "src/screens/other/SQLiteScreen"
 import { UnmountScreen } from "src/screens/other/UnmountScreen"
 import { FirestoreScreen } from "src/screens/other/FirestoreScreen"
 import { PressableScreen } from "src/screens/other/PressableScreen"
@@ -54,12 +56,14 @@ const screenMap = () => {
   map.set("SwipeRowSectionScreen", <SwipeRowSectionScreen />)
   map.set("SwipeListSectionScreen", <SwipeListSectionScreen />)
   map.set("FlatListAnimatedScreen", <FlatListAnimatedScreen />)
+  map.set("FlatListDraggableScreen", <FlatListDraggableScreen />)
   map.set("FontScreen", <FontScreen />)
   map.set("TextScreen", <TextScreen />)
   map.set("FlexScreen", <FlexScreen />)
   map.set("GraphScreen", <GraphScreen />)
   map.set("ImageScreen", <ImageScreen />)
   map.set("ModalScreen", <ModalScreen />)
+  map.set("SqliteScreen", <SqliteScreen />)
   map.set("UnmountScreen", <UnmountScreen />)
   map.set("PressableScreen", <PressableScreen />)
   map.set("ConstantsScreen", <ConstantsScreen />)
