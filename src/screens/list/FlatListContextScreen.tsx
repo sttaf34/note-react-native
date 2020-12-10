@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { FlatList, YellowBox, ListRenderItemInfo } from "react-native"
+import { FlatList, ListRenderItemInfo, LogBox } from "react-native"
 
 import { Touchable } from "src/components/Touchable"
 import { MarginText } from "src/components/MarginText"
@@ -11,7 +11,7 @@ import {
 } from "src/others/scoreStorageContext"
 
 export const ScreenInner: React.FC = () => {
-  YellowBox.ignoreWarnings(["Setting a timer"])
+  LogBox.ignoreLogs(["Setting a timer"])
 
   const context = useContext(ScoreContext)
   const { scores, createScore, updateScore, deleteScore } = context
