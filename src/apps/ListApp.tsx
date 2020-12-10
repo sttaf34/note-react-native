@@ -1,5 +1,11 @@
 import React from "react"
-import { Text, View, Button, StyleSheet, ScrollView } from "react-native"
+import {
+  Text,
+  View,
+  Pressable,
+  ScrollView,
+  PressableStateCallbackType,
+} from "react-native"
 import {
   useRoute,
   RouteProp,
@@ -10,6 +16,8 @@ import {
   StackNavigationProp,
   createStackNavigator,
 } from "@react-navigation/stack"
+
+import { Line } from "src/components/Line"
 
 import { SwipeRowScreen } from "src/screens/list/SwipeRowScreen"
 import { FlatListScreen } from "src/screens/list/FlatListScreen"
@@ -80,6 +88,10 @@ const screenMap = () => {
   return map
 }
 
+//
+// #region Navigation
+//
+
 type StackParamList = {
   List: undefined
   Detail: { screenName: string }
@@ -93,25 +105,43 @@ export type DetailScreenNavigationProp = StackNavigationProp<
 >
 type DetailScreenRouteProp = RouteProp<StackParamList, "Detail">
 
-const ListScreen: React.FC = () => {
-  const styles = StyleSheet.create({
-    item: {
-      margin: 4,
-    },
-  })
+// #endregion Navigation
 
+//
+// #region Screen
+//
+
+const style = (state: PressableStateCallbackType) => {
+  const { pressed } = state
+  if (pressed) {
+    return {
+      padding: 12,
+      backgroundColor: "rgb(210, 230, 255)",
+    }
+  }
+  return {
+    padding: 12,
+  }
+}
+
+const ListScreen: React.FC = () => {
   const { navigate } = useNavigation<DetailScreenNavigationProp>()
   const screenNames = Array.from(screenMap().keys())
+
+  const onPress = (screenName: string) => {
+    // reactnative.dev/docs/performance#my-touchablex-view-isnt-very-responsive
+    // セルを一瞬「ちょん」と押した時も、ちゃんとハイライトされる対応
+    requestAnimationFrame(() => {
+      navigate("Detail", { screenName })
+    })
+  }
+
   const lis = screenNames.map((screenName) => (
-    <View style={styles.item} key={screenName}>
-      <Button
-        title={screenName}
-        onPress={() =>
-          navigate("Detail", {
-            screenName,
-          })
-        }
-      />
+    <View key={screenName}>
+      <Pressable style={style} onPress={() => onPress(screenName)}>
+        <Text>{screenName}</Text>
+      </Pressable>
+      <Line />
     </View>
   ))
   return <ScrollView>{lis}</ScrollView>
@@ -133,3 +163,5 @@ export const ListApp: React.FC = () => {
     </NavigationContainer>
   )
 }
+
+// #endregion Screen
