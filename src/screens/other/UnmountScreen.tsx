@@ -2,7 +2,7 @@ import React from "react"
 import { TextInput } from "react-native"
 import { useFocusEffect } from "@react-navigation/native"
 
-import { styles } from "src/constants/styles"
+import { baseStyles } from "src/constants/baseStyles"
 import { MarginText } from "src/components/MarginText"
 import { MarginDiveder } from "src/components/MarginDiveder"
 
@@ -39,7 +39,7 @@ export const UnmountScreen: React.FC = () => {
   return (
     <>
       <TextInput
-        style={styles.textInput}
+        style={baseStyles.textInput}
         value={value}
         onChangeText={(text) => setValue(text)}
       />

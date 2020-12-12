@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native"
 
-export const styles = StyleSheet.create({
+export const baseStyles = StyleSheet.create({
   safeAreaView: {
     flex: 1,
   },
