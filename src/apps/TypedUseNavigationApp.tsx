@@ -1,24 +1,19 @@
 import React from "react"
-import { Text, Button, StyleSheet, SafeAreaView } from "react-native"
+import { SafeAreaView } from "react-native"
+import {
+  StackNavigationProp,
+  createStackNavigator,
+} from "@react-navigation/stack"
 import {
   useRoute,
   RouteProp,
   useNavigation,
   NavigationContainer,
 } from "@react-navigation/native"
-import {
-  StackNavigationProp,
-  createStackNavigator,
-} from "@react-navigation/stack"
 
-const styles = StyleSheet.create({
-  safeAreaView: {
-    flex: 1,
-  },
-  textInScreen: {
-    margin: 12,
-  },
-})
+import { baseStyles } from "src/constants/baseStyles"
+import { StyledText } from "src/components/StyledText"
+import { StyledButton } from "src/components/StyledButton"
 
 type StackParamList = {
   Hello: undefined
@@ -41,9 +36,9 @@ const HelloScreen: React.FC = () => {
   }
 
   return (
-    <SafeAreaView style={styles.safeAreaView}>
-      <Text style={styles.textInScreen}>Hello Hello</Text>
-      <Button title="Push!" onPress={onPress} />
+    <SafeAreaView style={baseStyles.safeAreaView}>
+      <StyledText text="Hello" />
+      <StyledButton title="Push!" onPress={onPress} />
     </SafeAreaView>
   )
 }
@@ -56,9 +51,9 @@ const GoodbyeScreen: React.FC = () => {
   const route = useRoute<GoodbyeScreenRouteProp>()
   const { id } = route.params // ここが undefined を考えなくてよくなる
   return (
-    <SafeAreaView style={styles.safeAreaView}>
-      <Text style={styles.textInScreen}>Goodbye Goodbye</Text>
-      <Text>{id}</Text>
+    <SafeAreaView style={baseStyles.safeAreaView}>
+      <StyledText text="Goodbye" />
+      <StyledText text={String(id)} />
     </SafeAreaView>
   )
 }
