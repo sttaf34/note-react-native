@@ -1,34 +1,24 @@
 import React from "react"
-import { Text, Button, StyleSheet, SafeAreaView } from "react-native"
-
+import { SafeAreaView } from "react-native"
 import { NavigationContainer } from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
-import { ScreenProps } from "src/constants/navigationType"
 
-const styles = StyleSheet.create({
-  safeAreaView: {
-    flex: 1,
-  },
-  textInScreen: {
-    margin: 12,
-  },
-})
+import { baseStyles } from "src/constants/baseStyles"
+import { StyledText } from "src/components/StyledText"
+import { ScreenProps } from "src/constants/navigationType"
+import { StyledButton } from "src/components/StyledButton"
+import { NavigationButton } from "src/components/NavigationButton"
 
 const Stack = createStackNavigator()
 
 const HelloScreen: React.FC<ScreenProps> = ({ navigation }: ScreenProps) => {
+  const onPress = () => {
+    navigation.navigate("Goodbye", { id: 777 })
+  }
   return (
-    <SafeAreaView style={styles.safeAreaView}>
-      <Text style={styles.textInScreen}>Hello Hello</Text>
-      <Button
-        title="Push!"
-        onPress={() =>
-          // 「遷移先」と「遷移先に渡す値」
-          navigation.navigate("Goodbye", {
-            id: 777,
-          })
-        }
-      />
+    <SafeAreaView style={baseStyles.safeAreaView}>
+      <StyledText text="Hello" />
+      <StyledButton title="Next" onPress={onPress} />
     </SafeAreaView>
   )
 }
@@ -44,15 +34,14 @@ const GoodbyeScreen: React.FC<ScreenProps> = ({
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <Button onPress={() => console.log("右上！")} title="Hello" />
+        <NavigationButton title="Button" onPress={() => console.log("AAA")} />
       ),
     })
   }, [navigation])
 
   return (
-    <SafeAreaView style={styles.safeAreaView}>
-      <Text style={styles.textInScreen}>Goodbye Goodbye</Text>
-      <Text style={styles.textInScreen}>{id}</Text>
+    <SafeAreaView style={baseStyles.safeAreaView}>
+      <StyledText text={id} />
     </SafeAreaView>
   )
 }

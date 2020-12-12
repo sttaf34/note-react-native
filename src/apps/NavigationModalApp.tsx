@@ -1,41 +1,31 @@
 import React from "react"
-import { Text, Button, StatusBar, StyleSheet, SafeAreaView } from "react-native"
+import { StyleSheet, SafeAreaView } from "react-native"
 import { NavigationContainer } from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
+
+import { baseStyles } from "src/constants/baseStyles"
 import { ScreenProps } from "src/constants/navigationType"
+import { StyledButton } from "src/components/StyledButton"
 
 const styles = StyleSheet.create({
-  safeAreaView: {
-    flex: 1,
-  },
   modal: {
     backgroundColor: "pink",
-  },
-  textInScreen: {
-    margin: 12,
-  },
-  title: {
-    fontSize: 32,
   },
 })
 
 const HomeScreen: React.FC<ScreenProps> = ({ navigation }: ScreenProps) => {
   // navigation.navigate にわたすのは Stack.Screen の name の値
   return (
-    <SafeAreaView style={styles.safeAreaView}>
-      <StatusBar hidden={false} />
-      <Text style={styles.textInScreen}>Hello Hello</Text>
-      <Button title="Open!" onPress={() => navigation.navigate("PinkModal")} />
+    <SafeAreaView style={baseStyles.safeAreaView}>
+      <StyledButton title="Open" onPress={() => navigation.navigate("Modal")} />
     </SafeAreaView>
   )
 }
 
 const ModalScreen: React.FC<ScreenProps> = ({ navigation }: ScreenProps) => {
   return (
-    <SafeAreaView style={[styles.safeAreaView, styles.modal]}>
-      <StatusBar hidden={false} />
-      <Text style={styles.textInScreen}>Hello Hello</Text>
-      <Button title="Close!" onPress={() => navigation.goBack()} />
+    <SafeAreaView style={[baseStyles.safeAreaView, styles.modal]}>
+      <StyledButton title="Close!" onPress={() => navigation.goBack()} />
     </SafeAreaView>
   )
 }
@@ -52,7 +42,7 @@ export const NavigationModalApp: React.FC = () => {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="PinkModal"
+          name="Modal"
           component={ModalScreen}
           options={{ headerShown: false }}
         />

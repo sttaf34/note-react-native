@@ -1,49 +1,40 @@
 import React from "react"
-import { Text, Button, StatusBar, SafeAreaView, StyleSheet } from "react-native"
+import { SafeAreaView } from "react-native"
+import { MaterialCommunityIcons } from "@expo/vector-icons"
 import { NavigationContainer } from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import { MaterialCommunityIcons } from "@expo/vector-icons"
-import { ScreenProps } from "src/constants/navigationType"
 
-const styles = StyleSheet.create({
-  safeAreaView: {
-    flex: 1,
-  },
-  textInScreen: {
-    margin: 12,
-  },
-})
+import { baseStyles } from "src/constants/baseStyles"
+import { StyledText } from "src/components/StyledText"
+import { ScreenProps } from "src/constants/navigationType"
+import { StyledButton } from "src/components/StyledButton"
 
 const LeftScreen: React.FC = () => {
   return (
-    <SafeAreaView style={styles.safeAreaView}>
-      <StatusBar hidden={false} />
-      <Text style={styles.textInScreen}>Left Left</Text>
+    <SafeAreaView style={baseStyles.safeAreaView}>
+      <StyledText text="Left" />
     </SafeAreaView>
   )
 }
 
 const HelloScreen: React.FC<ScreenProps> = ({ navigation }: ScreenProps) => {
+  const onPress = () => navigation.navigate("Goodbye")
   return (
     <>
-      <Text style={styles.textInScreen}>Hello Hello</Text>
-      <Button title="Push!" onPress={() => navigation.navigate("Goodbye")} />
+      <StyledButton title="Next" onPress={onPress} />
+      <StyledButton title="Log" onPress={() => console.log("Log")} />
     </>
   )
 }
 
 const GoodbyeScreen: React.FC = () => {
-  return (
-    <>
-      <Text style={styles.textInScreen}>Goodbye Goodbye</Text>
-    </>
-  )
+  return <StyledText text="Goodbye" />
 }
 
 const Stack = createStackNavigator()
 
-export const TabRightScreen: React.FC = () => {
+export const RightNavigator: React.FC = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Hello" component={HelloScreen} />
@@ -84,7 +75,7 @@ export const TabApp: React.FC = () => {
         />
         <Tab.Screen
           name="Right"
-          component={TabRightScreen}
+          component={RightNavigator}
           options={{
             tabBarLabel: "Right",
             tabBarIcon: ({ color, size }: TabBarIconProps) => (
