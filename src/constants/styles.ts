@@ -1,6 +1,9 @@
 import { StyleSheet } from "react-native"
 
 export const styles = StyleSheet.create({
+  safeAreaView: {
+    flex: 1,
+  },
   textInput: {
     fontSize: 18,
     margin: 10,

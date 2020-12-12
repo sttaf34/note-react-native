@@ -9,11 +9,13 @@ import {
 const styles = StyleSheet.create({
   button: {
     margin: 12,
+    marginBottom: 0,
     borderWidth: 0.5,
     borderRadius: 4,
   },
   buttonPressed: {
     margin: 12,
+    marginBottom: 0,
     borderWidth: 0.5,
     borderRadius: 4,
     backgroundColor: "#6bb6ff",
