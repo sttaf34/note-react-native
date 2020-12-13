@@ -25,6 +25,7 @@ import { SwipeRowSectionScreen } from "src/screens/list/SwipeRowSectionScreen"
 import { SwipeListSectionScreen } from "src/screens/list/SwipeListSectionScreen"
 import { FlatListAnimatedScreen } from "src/screens/list/FlatListAnimatedScreen"
 import { FlatListDraggableScreen } from "src/screens/list/FlatListDraggableScreen"
+import { FlatListPerformanceScreen } from "src/screens/list/FlatListPerformanceScreen"
 import { FlatListInfiniteScrollScreen } from "src/screens/list/FlatListInfiniteScrollScreen"
 
 import { FontScreen } from "src/screens/other/FontScreen"
@@ -57,6 +58,7 @@ const screenFunctions = [
   <SwipeListSectionScreen />,
   <FlatListAnimatedScreen />,
   <FlatListDraggableScreen />,
+  <FlatListPerformanceScreen />,
   <FlatListInfiniteScrollScreen />,
   <FontScreen />,
   <FlexScreen />,
