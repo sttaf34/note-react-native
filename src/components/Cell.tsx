@@ -7,17 +7,8 @@ import {
 } from "react-native"
 
 const styles = StyleSheet.create({
-  button: {
-    margin: 12,
-    marginBottom: 0,
-    borderWidth: 0.5,
-    borderRadius: 4,
-  },
+  button: {},
   buttonPressed: {
-    margin: 12,
-    marginBottom: 0,
-    borderWidth: 0.5,
-    borderRadius: 4,
     backgroundColor: "#6bb6ff",
   },
   text: {
@@ -34,7 +25,7 @@ type Props = {
   onPress: () => void
 }
 
-export const StyledButton: React.FC<Props> = (props: Props) => {
+export const Cell: React.FC<Props> = (props: Props) => {
   const { title, onPress } = props
   const onPressAnimation = () => {
     // reactnative.dev/docs/performance#my-touchablex-view-isnt-very-responsive
