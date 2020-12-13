@@ -1,22 +1,17 @@
 import React from "react"
+import { View, ScrollView } from "react-native"
 import {
-  Text,
-  View,
-  Pressable,
-  ScrollView,
-  PressableStateCallbackType,
-} from "react-native"
+  StackNavigationProp,
+  createStackNavigator,
+} from "@react-navigation/stack"
 import {
   useRoute,
   RouteProp,
   useNavigation,
   NavigationContainer,
 } from "@react-navigation/native"
-import {
-  StackNavigationProp,
-  createStackNavigator,
-} from "@react-navigation/stack"
 
+import { Cell } from "src/components/Cell"
 import { Line } from "src/components/Line"
 
 import { SwipeRowScreen } from "src/screens/list/SwipeRowScreen"
@@ -33,7 +28,6 @@ import { FlatListDraggableScreen } from "src/screens/list/FlatListDraggableScree
 import { FlatListInfiniteScrollScreen } from "src/screens/list/FlatListInfiniteScrollScreen"
 
 import { FontScreen } from "src/screens/other/FontScreen"
-import { TextScreen } from "src/screens/other/TextScreen"
 import { FlexScreen } from "src/screens/other/FlexScreen"
 import { GraphScreen } from "src/screens/other/GraphScreen"
 import { ImageScreen } from "src/screens/other/ImageScreen"
@@ -49,44 +43,43 @@ import { AsyncStorageScreen } from "src/screens/other/AsyncStorageScreen"
 import { AnimatedHelloScreen } from "src/screens/other/AnimatedHelloScreen"
 import { HelloElementsScreen } from "src/screens/other/HelloElementsScreen"
 import { AnimatedButtonScreen } from "src/screens/other/AnimatedButtonScreen"
+import { TextBlockInlineScreen } from "src/screens/other/TextBlockInlineScreen"
 import { ReactNativeModalScreen } from "src/screens/other/ReactNativeModalScreen"
 import { AnimatedScaleAnchorScreen } from "src/screens/other/AnimatedScaleAnchorScreen"
 
-const screenMap = () => {
-  const map = new Map<string, JSX.Element>()
-  map.set("SwipeRowScreen", <SwipeRowScreen />)
-  map.set("FlatListScreen", <FlatListScreen />)
-  map.set("FirestoreScreen", <FirestoreScreen />)
-  map.set("SwipeListScreen", <SwipeListScreen />)
-  map.set("SectionListScreen", <SectionListScreen />)
-  map.set("SwipeAnimatedScreen", <SwipeAnimatedScreen />)
-  map.set("SwipeListEditScreen", <SwipeListEditScreen />)
-  map.set("FlatListContextScreen", <FlatListContextScreen />)
-  map.set("SwipeRowSectionScreen", <SwipeRowSectionScreen />)
-  map.set("SwipeListSectionScreen", <SwipeListSectionScreen />)
-  map.set("FlatListAnimatedScreen", <FlatListAnimatedScreen />)
-  map.set("FlatListDraggableScreen", <FlatListDraggableScreen />)
-  map.set("FlatListInfiniteScrollScreen", <FlatListInfiniteScrollScreen />)
-  map.set("FontScreen", <FontScreen />)
-  map.set("TextScreen", <TextScreen />)
-  map.set("FlexScreen", <FlexScreen />)
-  map.set("GraphScreen", <GraphScreen />)
-  map.set("ImageScreen", <ImageScreen />)
-  map.set("ModalScreen", <ModalScreen />)
-  map.set("SqliteScreen", <SqliteScreen />)
-  map.set("UnmountScreen", <UnmountScreen />)
-  map.set("PressableScreen", <PressableScreen />)
-  map.set("ConstantsScreen", <ConstantsScreen />)
-  map.set("TextInputScreen", <TextInputScreen />)
-  map.set("AnimatedUseScreen", <AnimatedUseScreen />)
-  map.set("AsyncStorageScreen", <AsyncStorageScreen />)
-  map.set("AnimatedHelloScreen", <AnimatedHelloScreen />)
-  map.set("HelloElementsScreen", <HelloElementsScreen />)
-  map.set("AnimatedButtonScreen", <AnimatedButtonScreen />)
-  map.set("ReactNativeModalScreen", <ReactNativeModalScreen />)
-  map.set("AnimatedScaleAnchorScreen", <AnimatedScaleAnchorScreen />)
-  return map
-}
+const screenFunctions = [
+  <SwipeRowScreen />,
+  <FlatListScreen />,
+  <FirestoreScreen />,
+  <SwipeListScreen />,
+  <SectionListScreen />,
+  <SwipeAnimatedScreen />,
+  <SwipeListEditScreen />,
+  <FlatListContextScreen />,
+  <SwipeRowSectionScreen />,
+  <SwipeListSectionScreen />,
+  <FlatListAnimatedScreen />,
+  <FlatListDraggableScreen />,
+  <FlatListInfiniteScrollScreen />,
+  <FontScreen />,
+  <FlexScreen />,
+  <GraphScreen />,
+  <ImageScreen />,
+  <ModalScreen />,
+  <SqliteScreen />,
+  <UnmountScreen />,
+  <PressableScreen />,
+  <ConstantsScreen />,
+  <TextInputScreen />,
+  <AnimatedUseScreen />,
+  <AsyncStorageScreen />,
+  <AnimatedHelloScreen />,
+  <HelloElementsScreen />,
+  <AnimatedButtonScreen />,
+  <TextBlockInlineScreen />,
+  <ReactNativeModalScreen />,
+  <AnimatedScaleAnchorScreen />,
+]
 
 //
 // #region Navigation
@@ -111,46 +104,32 @@ type DetailScreenRouteProp = RouteProp<StackParamList, "Detail">
 // #region Screen
 //
 
-const style = (state: PressableStateCallbackType) => {
-  const { pressed } = state
-  if (pressed) {
-    return {
-      padding: 12,
-      backgroundColor: "rgb(210, 230, 255)",
-    }
-  }
-  return {
-    padding: 12,
-  }
-}
-
 const ListScreen: React.FC = () => {
   const { navigate } = useNavigation<DetailScreenNavigationProp>()
-  const screenNames = Array.from(screenMap().keys())
+  const screenNames: string[] = screenFunctions.map(
+    (aFunction) => aFunction.type.name
+  )
 
   const onPress = (screenName: string) => {
-    // reactnative.dev/docs/performance#my-touchablex-view-isnt-very-responsive
-    // セルを一瞬「ちょん」と押した時も、ちゃんとハイライトされる対応
-    requestAnimationFrame(() => {
-      navigate("Detail", { screenName })
-    })
+    navigate("Detail", { screenName })
   }
 
-  const lis = screenNames.map((screenName) => (
-    <View key={screenName}>
-      <Pressable style={style} onPress={() => onPress(screenName)}>
-        <Text>{screenName}</Text>
-      </Pressable>
+  const lis = screenNames.map((name) => (
+    <View key={name}>
+      <Cell title={name} onPress={() => onPress(name)} />
       <Line />
     </View>
   ))
+
   return <ScrollView>{lis}</ScrollView>
 }
 
 const DetailScreen: React.FC = () => {
   const { params } = useRoute<DetailScreenRouteProp>()
-  const element = screenMap().get(params.screenName)
-  return element || <Text>スクリーンが見つかりません</Text>
+  const screen = screenFunctions.find((aFunction) => {
+    return params.screenName === aFunction.type.name
+  })
+  return screen || <></>
 }
 
 export const ListApp: React.FC = () => {
