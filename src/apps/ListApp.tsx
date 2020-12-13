@@ -44,13 +44,11 @@ import { AnimatedHelloScreen } from "src/screens/other/AnimatedHelloScreen"
 import { HelloElementsScreen } from "src/screens/other/HelloElementsScreen"
 import { AnimatedButtonScreen } from "src/screens/other/AnimatedButtonScreen"
 import { TextBlockInlineScreen } from "src/screens/other/TextBlockInlineScreen"
-import { ReactNativeModalScreen } from "src/screens/other/ReactNativeModalScreen"
 import { AnimatedScaleAnchorScreen } from "src/screens/other/AnimatedScaleAnchorScreen"
 
 const screenFunctions = [
   <SwipeRowScreen />,
   <FlatListScreen />,
-  <FirestoreScreen />,
   <SwipeListScreen />,
   <SectionListScreen />,
   <SwipeAnimatedScreen />,
@@ -68,6 +66,7 @@ const screenFunctions = [
   <ModalScreen />,
   <SqliteScreen />,
   <UnmountScreen />,
+  <FirestoreScreen />,
   <PressableScreen />,
   <ConstantsScreen />,
   <TextInputScreen />,
@@ -77,7 +76,6 @@ const screenFunctions = [
   <HelloElementsScreen />,
   <AnimatedButtonScreen />,
   <TextBlockInlineScreen />,
-  <ReactNativeModalScreen />,
   <AnimatedScaleAnchorScreen />,
 ]
 

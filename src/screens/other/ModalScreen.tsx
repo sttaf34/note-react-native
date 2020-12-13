@@ -1,69 +1,88 @@
-import React, { useState } from "react"
-import {
-  Text,
-  Modal,
-  Button,
-  TextInput,
-  StatusBar,
-  StyleSheet,
-  SafeAreaView,
-} from "react-native"
+import React from "react"
+import CustomNativeModal from "react-native-modal"
+import { Modal as OriginalModal } from "react-native"
 
-const styles = StyleSheet.create({
-  safeAreaView: {
-    flex: 1,
-  },
-  input: {
-    margin: 12,
-    height: 40,
-    borderColor: "pink",
-    borderWidth: 1,
-  },
-})
+import { StyledText } from "src/components/StyledText"
+import { StyledButton } from "src/components/StyledButton"
+import { StyledTextInput } from "src/components/StyledTextInput"
+import { StyledSafeAreaView } from "src/components/StyledSafeAreaView"
 
-type ModalViewProps = {
+type OriginalModalViewProps = {
   isVisible: boolean
   setVisible: React.Dispatch<React.SetStateAction<boolean>>
   value: string
   setValue: React.Dispatch<React.SetStateAction<string>>
 }
 
-const ModalView: React.FC<ModalViewProps> = (props: ModalViewProps) => {
+const OriginalModalView: React.FC<OriginalModalViewProps> = (
+  props: OriginalModalViewProps
+) => {
   const { isVisible, setVisible, value, setValue } = props
-
   return (
-    <Modal animationType="slide" visible={isVisible}>
-      <SafeAreaView style={styles.safeAreaView}>
-        <Text>Hello Modal!</Text>
-        <TextInput
-          style={styles.input}
-          onChangeText={(text) => setValue(text)}
+    <OriginalModal animationType="slide" visible={isVisible}>
+      <StyledSafeAreaView>
+        <StyledText text="Hello Original Modal!" />
+        <StyledTextInput
+          onChangeValue={(aValue) => setValue(aValue)}
           value={value}
         />
-        <Button title="Close!" onPress={() => setVisible(false)} />
-      </SafeAreaView>
-    </Modal>
+        <StyledButton title="CLOSE" onPress={() => setVisible(false)} />
+      </StyledSafeAreaView>
+    </OriginalModal>
+  )
+}
+
+type CustomModalViewProps = {
+  isVisible: boolean
+  setVisible: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+// https://github.com/react-native-modal/react-native-modal
+// 標準の Modal からいろんな機能を拡張したもの、
+// アニメーションが早いし、いろいろ便利なので、基本こっち使うことになる
+
+const CustomModalView: React.FC<CustomModalViewProps> = (
+  props: CustomModalViewProps
+) => {
+  const { isVisible, setVisible } = props
+  return (
+    <CustomNativeModal isVisible={isVisible}>
+      <StyledSafeAreaView>
+        <StyledText text="Hello React Native Modal!" />
+        <StyledButton title="CLOSE" onPress={() => setVisible(false)} />
+      </StyledSafeAreaView>
+    </CustomNativeModal>
   )
 }
 
 export const ModalScreen: React.FC = () => {
-  const [modalVisible, setModalVisible] = useState(false)
+  const [modalVisibleOriginal, setModalVisibleOriginal] = React.useState(false)
+  const [modalVisibleCustom, setModalVisibleCustom] = React.useState(false)
   const [value, setValue] = React.useState("") // モーダルの中で入力される用
 
   return (
     <>
-      <ModalView
-        isVisible={modalVisible}
-        setVisible={setModalVisible}
+      <OriginalModalView
+        isVisible={modalVisibleOriginal}
+        setVisible={setModalVisibleOriginal}
         value={value}
         setValue={setValue}
       />
-
-      <SafeAreaView style={styles.safeAreaView}>
-        <StatusBar hidden={false} />
-        <Text>{value}</Text>
-        <Button title="Open!" onPress={() => setModalVisible(true)} />
-      </SafeAreaView>
+      <CustomModalView
+        isVisible={modalVisibleCustom}
+        setVisible={setModalVisibleCustom}
+      />
+      <StyledSafeAreaView>
+        <StyledText text={value} />
+        <StyledButton
+          title="OPEN ORIGINAL"
+          onPress={() => setModalVisibleOriginal(true)}
+        />
+        <StyledButton
+          title="OPEN CUSTOM"
+          onPress={() => setModalVisibleCustom(true)}
+        />
+      </StyledSafeAreaView>
     </>
   )
 }
