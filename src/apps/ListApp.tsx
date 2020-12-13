@@ -35,7 +35,6 @@ import { ModalScreen } from "src/screens/other/ModalScreen"
 import { SqliteScreen } from "src/screens/other/SQLiteScreen"
 import { UnmountScreen } from "src/screens/other/UnmountScreen"
 import { FirestoreScreen } from "src/screens/other/FirestoreScreen"
-import { PressableScreen } from "src/screens/other/PressableScreen"
 import { ConstantsScreen } from "src/screens/other/ConstantsScreen"
 import { TextInputScreen } from "src/screens/other/TextInputScreen"
 import { AnimatedUseScreen } from "src/screens/other/AnimatedUseScreen"
@@ -67,7 +66,6 @@ const screenFunctions = [
   <SqliteScreen />,
   <UnmountScreen />,
   <FirestoreScreen />,
-  <PressableScreen />,
   <ConstantsScreen />,
   <TextInputScreen />,
   <AnimatedUseScreen />,

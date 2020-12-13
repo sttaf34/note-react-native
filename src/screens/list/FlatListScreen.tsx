@@ -1,43 +1,32 @@
 import React from "react"
-import { View, FlatList, ListRenderItemInfo } from "react-native"
+import { FlatList, ListRenderItemInfo } from "react-native"
 
-import { Fruit, fruits as initialFruits } from "src/constants/fruits"
-import { MarginText } from "src/components/MarginText"
-import { useRightButton } from "src/others/navigationHooks"
+import { StyledText } from "src/components/StyledText"
+import { StyledButton } from "src/components/StyledButton"
+
+const initialNumbers = Array.from({ length: 20 }, (_, index) => index)
+
+const renderItem = (info: ListRenderItemInfo<number>): JSX.Element => {
+  const { item: aNumber } = info
+  return <StyledText text={String(aNumber)} />
+}
 
 export const FlatListScreen: React.FC = () => {
-  const [fruits, setFruits] = React.useState(initialFruits)
+  const [numbers, setNumbers] = React.useState(initialNumbers)
 
-  const addFruit = () => {
-    const newFruit: Fruit = {
-      id: String(Math.random()),
-      key: String(Math.random()),
-      name: "cranberry",
-    }
-    const newFruits = [newFruit, ...fruits]
-    setFruits(newFruits)
+  const onPress = () => {
+    const newNumbers = [...numbers, Math.random()]
+    setNumbers(newNumbers)
   }
 
-  useRightButton(addFruit, "追加")
-
-  const renderItem = (info: ListRenderItemInfo<Fruit>): JSX.Element => {
-    const { item: fruit } = info
-    return (
-      <View>
-        <MarginText>
-          {fruit.id} / {fruit.name}
-        </MarginText>
-      </View>
-    )
-  }
-
-  // https://reactnative.dev/docs/flatlist
-  // <li key={} /> の代わりに keyExtractor で指定する仕組み
   return (
-    <FlatList
-      data={fruits}
-      renderItem={renderItem}
-      keyExtractor={(item) => item.id}
-    />
+    <>
+      <StyledButton title="ADD" onPress={onPress} />
+      <FlatList
+        data={numbers}
+        renderItem={renderItem}
+        keyExtractor={(aNumber) => String(aNumber)}
+      />
+    </>
   )
 }

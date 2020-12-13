@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { FlatList, ListRenderItemInfo, LogBox } from "react-native"
 
-import { Touchable } from "src/components/Touchable"
+import { Cell } from "src/components/Cell"
 import { MarginText } from "src/components/MarginText"
 import { useRightButton } from "src/others/navigationHooks"
 import {
@@ -23,17 +23,12 @@ export const ScreenInner: React.FC = () => {
 
   const renderItem = (info: ListRenderItemInfo<Score>): JSX.Element => {
     const { item: score, index } = info
+    const title = `${score.id.slice(0, 4)} / ${score.value}`
     const onPress =
       index % 2 === 0
         ? () => deleteScore(score.id)
         : () => updateScore(score.id)
-    return (
-      <Touchable onPress={onPress}>
-        <MarginText>
-          {score.id.slice(0, 4)} / {score.value}
-        </MarginText>
-      </Touchable>
-    )
+    return <Cell title={title} onPress={onPress} />
   }
 
   return (
