@@ -44,6 +44,7 @@ import { AnimatedHelloScreen } from "src/screens/other/AnimatedHelloScreen"
 import { HelloElementsScreen } from "src/screens/other/HelloElementsScreen"
 import { AnimatedButtonScreen } from "src/screens/other/AnimatedButtonScreen"
 import { TextBlockInlineScreen } from "src/screens/other/TextBlockInlineScreen"
+import { HeavySlowScreen, HeavyFastScreen } from "src/screens/other/HeavyScreen"
 import { AnimatedScaleAnchorScreen } from "src/screens/other/AnimatedScaleAnchorScreen"
 
 const screenFunctions = [
@@ -76,6 +77,8 @@ const screenFunctions = [
   <HelloElementsScreen />,
   <AnimatedButtonScreen />,
   <TextBlockInlineScreen />,
+  <HeavySlowScreen />,
+  <HeavyFastScreen />,
   <AnimatedScaleAnchorScreen />,
 ]
 
