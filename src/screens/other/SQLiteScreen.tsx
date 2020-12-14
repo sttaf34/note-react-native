@@ -1,6 +1,6 @@
 import React from "react"
 import { View, Button, StyleSheet } from "react-native"
-import { MarginDiveder } from "src/components/MarginDiveder"
+import { MarginDivider } from "src/components/MarginDivider"
 import * as SQLite from "expo-sqlite"
 import {
   SQLError,
@@ -67,12 +67,12 @@ export const SqliteScreen: React.FC = () => {
       <View style={styles.buttonContainer}>
         <Button onPress={createTable} title="Create Table" />
       </View>
-      <MarginDiveder />
+      <MarginDivider />
 
       <View style={styles.buttonContainer}>
         <Button onPress={select} title="Select" />
       </View>
-      <MarginDiveder />
+      <MarginDivider />
 
       <View style={styles.buttonContainer}>
         <Button onPress={insert} title="Insert" />

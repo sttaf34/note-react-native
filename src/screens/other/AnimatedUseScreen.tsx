@@ -9,7 +9,7 @@ import {
 } from "react-native"
 
 import { MarginText } from "src/components/MarginText"
-import { MarginDiveder } from "src/components/MarginDiveder"
+import { MarginDivider } from "src/components/MarginDivider"
 
 //
 // #region 一つのコンポーネントをフェードアウト（消える）
@@ -303,15 +303,15 @@ export const AnimatedUseScreen: React.FC = () => {
   return (
     <ScrollView>
       <HowToUseAnimationFadeOut />
-      <MarginDiveder />
+      <MarginDivider />
       <HowToUseAnimationsFadeIn />
-      <MarginDiveder />
+      <MarginDivider />
       <HowToUseAnimationScaleIn />
-      <MarginDiveder />
+      <MarginDivider />
       <HowToUseAnimationPosition />
-      <MarginDiveder />
+      <MarginDivider />
       <HowToUseAnimationInterpolate />
-      <MarginDiveder />
+      <MarginDivider />
       <HowToUseAnimationHeight />
     </ScrollView>
   )

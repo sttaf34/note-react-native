@@ -1,6 +1,6 @@
 import React from "react"
 import { View, Text, StyleSheet } from "react-native"
-import { MarginDiveder } from "src/components/MarginDiveder"
+import { MarginDivider } from "src/components/MarginDivider"
 
 const styles = StyleSheet.create({
   container: {
@@ -39,7 +39,7 @@ export const TextBlockInlineScreen: React.FC = () => {
   return (
     <View style={styles.container}>
       <Block />
-      <MarginDiveder />
+      <MarginDivider />
       <Inline />
     </View>
   )

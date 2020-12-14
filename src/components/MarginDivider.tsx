@@ -2,7 +2,7 @@ import React from "react"
 import { StyleSheet } from "react-native"
 import { Divider } from "react-native-elements"
 
-export const MarginDiveder: React.FC = () => {
+export const MarginDivider: React.FC = () => {
   const styles = StyleSheet.create({
     margin: {
       marginTop: 5,

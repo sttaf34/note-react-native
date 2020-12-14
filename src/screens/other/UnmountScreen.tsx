@@ -4,7 +4,7 @@ import { useFocusEffect } from "@react-navigation/native"
 
 import { baseStyles } from "src/constants/baseStyles"
 import { MarginText } from "src/components/MarginText"
-import { MarginDiveder } from "src/components/MarginDiveder"
+import { MarginDivider } from "src/components/MarginDivider"
 
 //
 // スクリーンが消えるときに TextInput の値で何かしたい
@@ -44,7 +44,7 @@ export const UnmountScreen: React.FC = () => {
         onChangeText={(text) => setValue(text)}
       />
       <MarginText>{value}</MarginText>
-      <MarginDiveder />
+      <MarginDivider />
       <UnmountHelper value={value} />
     </>
   )

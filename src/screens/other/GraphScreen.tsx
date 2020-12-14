@@ -3,7 +3,7 @@ import dayjs from "dayjs"
 import { ScrollView } from "react-native"
 import { VictoryLine, VictoryChart, VictoryAxis } from "victory-native"
 
-import { MarginDiveder } from "src/components/MarginDiveder"
+import { MarginDivider } from "src/components/MarginDivider"
 
 const length = 10
 
@@ -104,11 +104,11 @@ export const GraphScreen: React.FC = () => {
   return (
     <ScrollView>
       <VictoryHello />
-      <MarginDiveder />
+      <MarginDivider />
       <VictoryHelloWithAxis />
-      <MarginDiveder />
+      <MarginDivider />
       <VictoryDateAxis />
-      <MarginDiveder />
+      <MarginDivider />
       <VictorySampleData />
     </ScrollView>
   )

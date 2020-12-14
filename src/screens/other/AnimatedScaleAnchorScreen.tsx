@@ -1,7 +1,7 @@
 import React from "react"
 import { Button, Animated, StyleSheet, Easing } from "react-native"
 
-import { MarginDiveder } from "src/components/MarginDiveder"
+import { MarginDivider } from "src/components/MarginDivider"
 
 //
 // https://stackoverflow.com/questions/50047897/
@@ -161,7 +161,7 @@ export const AnimatedScaleAnchorScreen: React.FC = () => {
   return (
     <>
       <HowToUseAnimationInterpolateScaleOut />
-      <MarginDiveder />
+      <MarginDivider />
       <HowToUseAnimationInterpolateScaleIn />
     </>
   )

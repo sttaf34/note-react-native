@@ -1,6 +1,6 @@
 import React from "react"
 import { View, Text, StyleSheet } from "react-native"
-import { MarginDiveder } from "src/components/MarginDiveder"
+import { MarginDivider } from "src/components/MarginDivider"
 
 // iPhone SE      => 半角フォントと全角フォントの高さがずれる
 // Android One X2 => 半角フォントと全角フォントの高さが揃う
@@ -58,9 +58,9 @@ export const FontScreen: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <MarginDiveder />
+      <MarginDivider />
       <BorderText />
-      <MarginDiveder />
+      <MarginDivider />
       <Space />
     </View>
   )
