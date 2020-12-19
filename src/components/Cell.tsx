@@ -27,9 +27,11 @@ type Props = {
 
 export const Cell: React.FC<Props> = (props: Props) => {
   const { title, onPress } = props
+
   const onPressAnimation = () => {
     // reactnative.dev/docs/performance#my-touchablex-view-isnt-very-responsive
     // セルを一瞬「ちょん」と押した時も、ちゃんとハイライトされる対応
+    // ただし、画面遷移開始のタイミングが一瞬遅くなる
     requestAnimationFrame(() => {
       onPress()
     })
