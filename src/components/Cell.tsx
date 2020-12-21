@@ -23,19 +23,29 @@ const style = (state: PressableStateCallbackType) => {
 type Props = {
   title: string
   onPress: () => void
+  isRequestAnimation: boolean
 }
 
 export const Cell: React.FC<Props> = (props: Props) => {
-  const { title, onPress } = props
+  const { title, onPress, isRequestAnimation } = props
 
-  const onPressAnimation = () => {
-    // reactnative.dev/docs/performance#my-touchablex-view-isnt-very-responsive
-    // セルを一瞬「ちょん」と押した時も、ちゃんとハイライトされる対応
-    // ただし、画面遷移開始のタイミングが一瞬遅くなる
-    requestAnimationFrame(() => {
-      onPress()
-    })
-  }
+  // reactnative.dev/docs/performance#my-touchablex-view-isnt-very-responsive
+  const onPressAnimation = isRequestAnimation
+    ? () => {
+        // セルを一瞬「ちょん」と押した時、
+        // 遷移先の Screen が重い場合もハイライトされるが、
+        // 画面遷移開始のタイミングが一瞬遅くなる
+        requestAnimationFrame(() => {
+          onPress()
+        })
+      }
+    : () => {
+        // 遷移先の Screen の最初のレンダリングを工夫すれば、
+        // セルを一瞬「ちょん」と押した時のハイライトがされないことはなくなり、
+        // 画面遷移開始のタイミングは遅くならない
+        onPress()
+      }
+
   return (
     <Pressable style={style} onPress={onPressAnimation}>
       <Text style={styles.text}>{title}</Text>

@@ -42,6 +42,7 @@ import { AnimatedUseScreen } from "src/screens/other/AnimatedUseScreen"
 import { AsyncStorageScreen } from "src/screens/other/AsyncStorageScreen"
 import { AnimatedHelloScreen } from "src/screens/other/AnimatedHelloScreen"
 import { HelloElementsScreen } from "src/screens/other/HelloElementsScreen"
+import { NavigationOptionScreen } from "src/screens/other/NavigationOptionScreen"
 import { AnimatedButtonScreen } from "src/screens/other/AnimatedButtonScreen"
 import { TextBlockInlineScreen } from "src/screens/other/TextBlockInlineScreen"
 import { HeavySlowScreen, HeavyFastScreen } from "src/screens/other/HeavyScreen"
@@ -75,6 +76,7 @@ const screenFunctions = [
   <AsyncStorageScreen />,
   <AnimatedHelloScreen />,
   <HelloElementsScreen />,
+  <NavigationOptionScreen />,
   <AnimatedButtonScreen />,
   <TextBlockInlineScreen />,
   <HeavySlowScreen />,
@@ -117,7 +119,11 @@ const ListScreen: React.FC = () => {
 
   const lis = screenNames.map((name) => (
     <View key={name}>
-      <Cell title={name} onPress={() => onPress(name)} />
+      <Cell
+        title={name}
+        onPress={() => onPress(name)}
+        isRequestAnimation={false}
+      />
       <Line />
     </View>
   ))
