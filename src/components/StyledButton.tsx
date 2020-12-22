@@ -32,20 +32,25 @@ const style = (state: PressableStateCallbackType) => {
 type Props = {
   title: string
   onPress: () => void
+  isRequestAnimation?: boolean
 }
 
-export const StyledButton: React.FC<Props> = (props: Props) => {
-  const { title, onPress } = props
-  const onPressAnimation = () => {
-    // reactnative.dev/docs/performance#my-touchablex-view-isnt-very-responsive
-    // セルを一瞬「ちょん」と押した時も、ちゃんとハイライトされる対応
-    requestAnimationFrame(() => {
-      onPress()
-    })
-  }
+export const StyledButton: React.FC<Props> = ({
+  title,
+  onPress,
+  isRequestAnimation = false,
+}: Props) => {
+  const onPressAnimation = isRequestAnimation
+    ? () => requestAnimationFrame(() => onPress())
+    : () => onPress()
+
   return (
     <Pressable style={style} onPress={onPressAnimation}>
       <Text style={styles.text}>{title}</Text>
     </Pressable>
   )
+}
+
+StyledButton.defaultProps = {
+  isRequestAnimation: false,
 }

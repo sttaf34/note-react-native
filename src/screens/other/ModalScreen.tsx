@@ -4,6 +4,7 @@ import { Modal as OriginalModal } from "react-native"
 
 import { StyledText } from "src/components/StyledText"
 import { StyledButton } from "src/components/StyledButton"
+import { HeavyComponent } from "src/components/HeavyComponent"
 import { StyledTextInput } from "src/components/StyledTextInput"
 import { StyledSafeAreaView } from "src/components/StyledSafeAreaView"
 
@@ -27,6 +28,7 @@ const OriginalModalView: React.FC<OriginalModalViewProps> = (
           value={value}
         />
         <StyledButton title="CLOSE" onPress={() => setVisible(false)} />
+        <HeavyComponent />
       </StyledSafeAreaView>
     </OriginalModal>
   )
@@ -39,7 +41,6 @@ type CustomModalViewProps = {
 
 // https://github.com/react-native-modal/react-native-modal
 // 標準の Modal からいろんな機能を拡張したもの、
-// アニメーションが早いし、いろいろ便利なので、基本こっち使うことになる
 
 const CustomModalView: React.FC<CustomModalViewProps> = (
   props: CustomModalViewProps
@@ -50,6 +51,7 @@ const CustomModalView: React.FC<CustomModalViewProps> = (
       <StyledSafeAreaView>
         <StyledText text="Hello React Native Modal!" />
         <StyledButton title="CLOSE" onPress={() => setVisible(false)} />
+        <HeavyComponent />
       </StyledSafeAreaView>
     </CustomNativeModal>
   )
@@ -76,7 +78,9 @@ export const ModalScreen: React.FC = () => {
         <StyledText text={value} />
         <StyledButton
           title="OPEN ORIGINAL"
-          onPress={() => setModalVisibleOriginal(true)}
+          onPress={() =>
+            requestAnimationFrame(() => setModalVisibleOriginal(true))
+          }
         />
         <StyledButton
           title="OPEN CUSTOM"
