@@ -30,6 +30,7 @@ import { FlatListInfiniteScrollScreen } from "src/screens/list/FlatListInfiniteS
 
 import { FontScreen } from "src/screens/other/FontScreen"
 import { FlexScreen } from "src/screens/other/FlexScreen"
+import { AlertScreen } from "src/screens/other/AlertScreen"
 import { GraphScreen } from "src/screens/other/GraphScreen"
 import { ImageScreen } from "src/screens/other/ImageScreen"
 import { ModalScreen } from "src/screens/other/ModalScreen"
@@ -64,6 +65,7 @@ const screenFunctions = [
   <FlatListInfiniteScrollScreen />,
   <FontScreen />,
   <FlexScreen />,
+  <AlertScreen />,
   <GraphScreen />,
   <ImageScreen />,
   <ModalScreen />,
