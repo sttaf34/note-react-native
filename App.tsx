@@ -3,6 +3,7 @@
 import React from "react"
 import { TabApp } from "src/apps/TabApp"
 import { ListApp } from "src/apps/ListApp"
+import { SplashApp } from "src/apps/SplashApp"
 import { AppearanceApp } from "src/apps/AppearanceApp"
 import { NavigationApp } from "src/apps/NavigationApp"
 import { NavigationModalApp } from "src/apps/NavigationModalApp"
@@ -13,7 +14,8 @@ const App = (): JSX.Element => {
   return (
     <>
       {/* <TabApp /> */}
-      <ListApp />
+      {/* <ListApp /> */}
+      <SplashApp />
       {/* <NavigationApp /> */}
       {/* <NavigationModalApp /> */}
       {/* <TypedUseNavigationApp /> */}
