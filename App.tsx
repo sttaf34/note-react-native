@@ -14,8 +14,8 @@ const App = (): JSX.Element => {
   return (
     <>
       {/* <TabApp /> */}
-      {/* <ListApp /> */}
-      <SplashApp />
+      <ListApp />
+      {/* <SplashApp /> */}
       {/* <NavigationApp /> */}
       {/* <NavigationModalApp /> */}
       {/* <TypedUseNavigationApp /> */}

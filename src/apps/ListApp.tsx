@@ -39,6 +39,7 @@ import { UnmountScreen } from "src/screens/other/UnmountScreen"
 import { FirestoreScreen } from "src/screens/other/FirestoreScreen"
 import { ConstantsScreen } from "src/screens/other/ConstantsScreen"
 import { TextInputScreen } from "src/screens/other/TextInputScreen"
+import { AnimatableScreen } from "src/screens/other/AnimatableScreen"
 import { AnimatedUseScreen } from "src/screens/other/AnimatedUseScreen"
 import { AsyncStorageScreen } from "src/screens/other/AsyncStorageScreen"
 import { AnimatedHelloScreen } from "src/screens/other/AnimatedHelloScreen"
@@ -74,6 +75,7 @@ const screenFunctions = [
   <FirestoreScreen />,
   <ConstantsScreen />,
   <TextInputScreen />,
+  <AnimatableScreen />,
   <AnimatedUseScreen />,
   <AsyncStorageScreen />,
   <AnimatedHelloScreen />,
