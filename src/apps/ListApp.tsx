@@ -34,6 +34,7 @@ import { AlertScreen } from "src/screens/other/AlertScreen"
 import { GraphScreen } from "src/screens/other/GraphScreen"
 import { ImageScreen } from "src/screens/other/ImageScreen"
 import { ModalScreen } from "src/screens/other/ModalScreen"
+import { CenterScreen } from "src/screens/other/CenterScreen"
 import { SqliteScreen } from "src/screens/other/SQLiteScreen"
 import { UnmountScreen } from "src/screens/other/UnmountScreen"
 import { FirestoreScreen } from "src/screens/other/FirestoreScreen"
@@ -71,6 +72,7 @@ const screenFunctions = [
   <GraphScreen />,
   <ImageScreen />,
   <ModalScreen />,
+  <CenterScreen />,
   <SqliteScreen />,
   <UnmountScreen />,
   <FirestoreScreen />,
