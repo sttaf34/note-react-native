@@ -35,6 +35,7 @@ import { GraphScreen } from "src/screens/other/GraphScreen"
 import { ImageScreen } from "src/screens/other/ImageScreen"
 import { ModalScreen } from "src/screens/other/ModalScreen"
 import { CenterScreen } from "src/screens/other/CenterScreen"
+import { PickerScreen } from "src/screens/other/PickerScreen"
 import { SqliteScreen } from "src/screens/other/SQLiteScreen"
 import { UnmountScreen } from "src/screens/other/UnmountScreen"
 import { StorageScreen } from "src/screens/other/StorageScreen"
@@ -49,6 +50,7 @@ import { AnimatedHelloScreen } from "src/screens/other/AnimatedHelloScreen"
 import { HelloElementsScreen } from "src/screens/other/HelloElementsScreen"
 import { SqliteDatetimeScreen } from "src/screens/other/SQLiteDatetimeScreen"
 import { AnimatedButtonScreen } from "src/screens/other/AnimatedButtonScreen"
+import { DateTimePickerScreen } from "src/screens/other/DateTimePickerScreen"
 import { TextBlockInlineScreen } from "src/screens/other/TextBlockInlineScreen"
 import { HeavySlowScreen, HeavyFastScreen } from "src/screens/other/HeavyScreen"
 import { NavigationOptionScreen } from "src/screens/other/NavigationOptionScreen"
@@ -75,6 +77,7 @@ const screenFunctions = [
   <ImageScreen />,
   <ModalScreen />,
   <CenterScreen />,
+  <PickerScreen />,
   <SqliteScreen />,
   <UnmountScreen />,
   <StorageScreen />,
@@ -89,6 +92,7 @@ const screenFunctions = [
   <HelloElementsScreen />,
   <SqliteDatetimeScreen />,
   <AnimatedButtonScreen />,
+  <DateTimePickerScreen />,
   <TextBlockInlineScreen />,
   <HeavySlowScreen />,
   <HeavyFastScreen />,
