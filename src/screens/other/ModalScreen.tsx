@@ -19,8 +19,18 @@ const OriginalModalView: React.FC<OriginalModalViewProps> = (
   props: OriginalModalViewProps
 ) => {
   const { isVisible, setVisible, value, setValue } = props
+
+  // presentationStyle="pageSheet" にすると
+  // 画面全体を専有しない半端モーダルにはできるが、
+  // スワイプで画面を閉じる動作には対応していない
+  // https://github.com/facebook/react-native/issues/29319
+
   return (
-    <OriginalModal animationType="slide" visible={isVisible}>
+    <OriginalModal
+      animationType="slide"
+      visible={isVisible}
+      presentationStyle="fullScreen"
+    >
       <StyledSafeAreaView>
         <StyledText text="Hello Original Modal!" />
         <StyledTextInput
