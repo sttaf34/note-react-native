@@ -1,9 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import React from "react"
+
 import { TabApp } from "src/apps/TabApp"
 import { ListApp } from "src/apps/ListApp"
 import { SplashApp } from "src/apps/SplashApp"
+import { TabModalApp } from "src/apps/TabModalApp"
 import { AppearanceApp } from "src/apps/AppearanceApp"
 import { NavigationApp } from "src/apps/NavigationApp"
 import { NavigationModalApp } from "src/apps/NavigationModalApp"
@@ -16,6 +18,7 @@ const App = (): JSX.Element => {
       {/* <TabApp /> */}
       <ListApp />
       {/* <SplashApp /> */}
+      {/* <TabModalApp /> */}
       {/* <NavigationApp /> */}
       {/* <NavigationModalApp /> */}
       {/* <TypedUseNavigationApp /> */}
