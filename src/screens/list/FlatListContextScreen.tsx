@@ -28,7 +28,7 @@ export const ScreenInner: React.FC = () => {
       index % 2 === 0
         ? () => deleteScore(score.id)
         : () => updateScore(score.id)
-    return <Cell title={title} onPress={onPress} />
+    return <Cell title={title} onPress={onPress} isRequestAnimation />
   }
 
   return (

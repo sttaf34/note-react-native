@@ -23,7 +23,8 @@ const FadeInView: React.FC<unknown> = (props: React.Props<unknown>) => {
 
   React.useEffect(() => {
     Animated.timing(opacityValue, config).start()
-  }, [opacityValue])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <Animated.View style={{ opacity: opacityValue }}>{children}</Animated.View>
@@ -41,7 +42,8 @@ const FadeOutView: React.FC<unknown> = (props: React.Props<unknown>) => {
 
   React.useEffect(() => {
     Animated.timing(opacityValue, config).start()
-  }, [opacityValue])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <Animated.View style={{ opacity: opacityValue }}>{children}</Animated.View>
@@ -60,10 +62,11 @@ const ScaleInView: React.FC<unknown> = (props: React.Props<unknown>) => {
 
   React.useEffect(() => {
     Animated.timing(scaleValue, config).start()
-  }, [scaleValue])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
-    <Animated.View style={{ tranform: 0, transform: [{ scale: scaleValue }] }}>
+    <Animated.View style={{ transform: [{ scale: scaleValue }] }}>
       {children}
     </Animated.View>
   )
@@ -81,10 +84,11 @@ const ScaleOutView: React.FC<unknown> = (props: React.Props<unknown>) => {
 
   React.useEffect(() => {
     Animated.timing(scaleValue, config).start()
-  }, [scaleValue])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
-    <Animated.View style={{ tranform: 0, transform: [{ scale: scaleValue }] }}>
+    <Animated.View style={{ transform: [{ scale: scaleValue }] }}>
       {children}
     </Animated.View>
   )
