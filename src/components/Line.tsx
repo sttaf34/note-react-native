@@ -3,7 +3,7 @@ import { View, StyleSheet } from "react-native"
 
 const styles = StyleSheet.create({
   line: {
-    height: 0.5,
+    height: StyleSheet.hairlineWidth,
     backgroundColor: "#ff0000",
   },
 })
