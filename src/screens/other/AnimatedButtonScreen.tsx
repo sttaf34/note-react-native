@@ -3,7 +3,6 @@ import { View, Text, Button, Animated, StyleSheet } from "react-native"
 
 const styles = StyleSheet.create({
   container: {
-    height: 128,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -94,6 +93,25 @@ const ScaleOutView: React.FC<unknown> = (props: React.Props<unknown>) => {
   )
 }
 
+const HeightDownView: React.FC<unknown> = (props: React.Props<unknown>) => {
+  const { children } = props
+  const heightValue = React.useRef(new Animated.Value(100)).current
+  const config: Animated.TimingAnimationConfig = {
+    toValue: 0,
+    duration: 500,
+    useNativeDriver: false,
+  }
+
+  React.useEffect(() => {
+    Animated.timing(heightValue, config).start()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  return (
+    <Animated.View style={[{ height: heightValue }]}>{children}</Animated.View>
+  )
+}
+
 export const AnimatedButtonScreen: React.FC = () => {
   const [isVisible, setIsVisible] = React.useState(true)
 
@@ -123,6 +141,9 @@ export const AnimatedButtonScreen: React.FC = () => {
       <ScaleInView>
         <Text style={styles.text}>Hey!</Text>
       </ScaleInView>
+      <HeightDownView>
+        <Text style={styles.text}>Hey!</Text>
+      </HeightDownView>
     </View>
   )
 }
