@@ -1,9 +1,7 @@
 import React from "react"
 import { StyleSheet, SafeAreaView } from "react-native"
 
-export type PropsChildren = {
-  children: React.ReactNode
-}
+import { PropsChildren } from "src/constants/types"
 
 const styles = StyleSheet.create({
   safeAreaView: {

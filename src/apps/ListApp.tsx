@@ -39,6 +39,7 @@ import { PickerScreen } from "src/screens/other/PickerScreen"
 import { SqliteScreen } from "src/screens/other/SQLiteScreen"
 import { UnmountScreen } from "src/screens/other/UnmountScreen"
 import { StorageScreen } from "src/screens/other/StorageScreen"
+import { KeyboardScreen } from "src/screens/other/KeyboardScreen"
 import { FirestoreScreen } from "src/screens/other/FirestoreScreen"
 import { ViewCountScreen } from "src/screens/other/ViewCountScreen"
 import { ConstantsScreen } from "src/screens/other/ConstantsScreen"
@@ -81,6 +82,7 @@ const screenFunctions = [
   <SqliteScreen />,
   <UnmountScreen />,
   <StorageScreen />,
+  <KeyboardScreen />,
   <FirestoreScreen />,
   <ViewCountScreen />,
   <ConstantsScreen />,
