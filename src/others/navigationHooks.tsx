@@ -1,5 +1,5 @@
 import React from "react"
-import { Button } from "react-native"
+import { Button } from "react-native-elements"
 import { useNavigation } from "@react-navigation/native"
 import { DetailScreenNavigationProp } from "src/apps/ListApp"
 
@@ -10,7 +10,9 @@ export const useLeftButton = (
   const navigation = useNavigation<DetailScreenNavigationProp>()
   React.useLayoutEffect(() => {
     navigation.setOptions({
-      headerLeft: () => <Button onPress={executeFunction} title={title} />,
+      headerLeft: () => (
+        <Button type="clear" onPress={executeFunction} title={title} />
+      ),
     })
   }, [executeFunction, navigation, title])
 }
@@ -22,7 +24,9 @@ export const useRightButton = (
   const navigation = useNavigation<DetailScreenNavigationProp>()
   React.useLayoutEffect(() => {
     navigation.setOptions({
-      headerRight: () => <Button onPress={executeFunction} title={title} />,
+      headerRight: () => (
+        <Button type="clear" onPress={executeFunction} title={title} />
+      ),
     })
   }, [executeFunction, navigation, title])
 }
