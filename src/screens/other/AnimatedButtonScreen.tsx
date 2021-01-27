@@ -142,6 +142,32 @@ const ChangeColorView: React.FC<PropsChildren> = (props: PropsChildren) => {
   )
 }
 
+// 文字色を変更
+const ChangeTextColorView: React.FC = () => {
+  const value = React.useRef(new Animated.Value(0)).current
+  const config: Animated.TimingAnimationConfig = {
+    toValue: 1,
+    duration: 500,
+    useNativeDriver: false,
+  }
+
+  const color = value.interpolate({
+    inputRange: [0, 1],
+    outputRange: ["rgb(0, 0, 0)", "rgb(255, 30, 100)"],
+  })
+
+  React.useEffect(() => {
+    Animated.timing(value, config).start()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  return (
+    <Animated.Text style={[{ color }]}>
+      <Text style={styles.text}>Hey!</Text>
+    </Animated.Text>
+  )
+}
+
 // 高さと色を並列で変更
 const ChangeColorAndHeightView: React.FC<PropsChildren> = (
   props: PropsChildren
@@ -202,6 +228,7 @@ export const AnimatedButtonScreen: React.FC = () => {
         <ChangeColorView>
           <Text style={styles.text}>Hey!</Text>
         </ChangeColorView>
+        <ChangeTextColorView />
         <ChangeColorAndHeightView>
           <Text style={styles.text}>Hey!</Text>
         </ChangeColorAndHeightView>

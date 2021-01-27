@@ -38,6 +38,7 @@ type Fruit = {
 }
 
 const useAnimationsDeleteItem = (keys: string[]) => {
+  // 高さ
   const heights: Record<string, Animated.Value | undefined> = {}
   const heightsHidden: Record<string, Animated.Value | undefined> = {}
   keys.forEach((key) => {
@@ -49,9 +50,20 @@ const useAnimationsDeleteItem = (keys: string[]) => {
 
   const config: Animated.TimingAnimationConfig = {
     toValue: 0,
-    duration: 350,
+    duration: 300,
     useNativeDriver: false,
     easing: Easing.out(Easing.exp),
+  }
+
+  // 色
+  const valuesColor: Record<string, Animated.Value | undefined> = {}
+  keys.forEach((key) => {
+    valuesColor[key] = new Animated.Value(0)
+  })
+  const configColor: Animated.TimingAnimationConfig = {
+    toValue: 1,
+    duration: 100,
+    useNativeDriver: false,
   }
 
   const start = (key: string, callback: Animated.EndCallback) => {
@@ -60,10 +72,15 @@ const useAnimationsDeleteItem = (keys: string[]) => {
     if (height) {
       Animated.timing(height, config).start(callback)
     }
+
     // 後ろに位置している方
     const heightHidden = heightsHidden[key]
-    if (heightHidden) {
-      Animated.timing(heightHidden, config).start(callback)
+    const valueColor = valuesColor[key]
+    if (valueColor && heightHidden) {
+      Animated.parallel([
+        Animated.timing(valueColor, configColor),
+        Animated.timing(heightHidden, config),
+      ]).start()
     }
   }
 
@@ -76,6 +93,18 @@ const useAnimationsDeleteItem = (keys: string[]) => {
 
   // 後ろに位置している方用のスタイル
   const styleHidden = (key: string) => {
+    const valueColor = valuesColor[key]
+    if (valueColor) {
+      const color = valueColor.interpolate({
+        inputRange: [0, 0.2, 1],
+        outputRange: ["rgb(0, 0, 0)", "red", "red"],
+      })
+      return {
+        backgroundColor: color,
+        height: heightsHidden[key],
+      }
+    }
+
     return {
       height: heightsHidden[key],
     }
