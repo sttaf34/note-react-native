@@ -168,6 +168,27 @@ const ChangeTextColorView: React.FC = () => {
   )
 }
 
+//
+const ChangeTextHeightView: React.FC = () => {
+  const height = React.useRef(new Animated.Value(100)).current
+  const config: Animated.TimingAnimationConfig = {
+    toValue: 0,
+    duration: 500,
+    useNativeDriver: false,
+  }
+
+  React.useEffect(() => {
+    Animated.timing(height, config).start()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  return (
+    <Animated.Text style={[{ height }]}>
+      <Text style={styles.text}>Hey!</Text>
+    </Animated.Text>
+  )
+}
+
 // 高さと色を並列で変更
 const ChangeColorAndHeightView: React.FC<PropsChildren> = (
   props: PropsChildren
@@ -248,6 +269,7 @@ export const AnimatedButtonScreen: React.FC = () => {
       <HeightDownView>
         <Text style={styles.text}>Hey!</Text>
       </HeightDownView>
+      <ChangeTextHeightView />
     </View>
   )
 }
