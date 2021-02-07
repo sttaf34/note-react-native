@@ -47,6 +47,7 @@ import { FirestoreScreen } from "src/screens/other/FirestoreScreen"
 import { ViewCountScreen } from "src/screens/other/ViewCountScreen"
 import { ConstantsScreen } from "src/screens/other/ConstantsScreen"
 import { TextInputScreen } from "src/screens/other/TextInputScreen"
+import { ShareFileScreen } from "src/screens/other/ShareFileScreen"
 import { AnimatableScreen } from "src/screens/other/AnimatableScreen"
 import { AnimatedUseScreen } from "src/screens/other/AnimatedUseScreen"
 import { AsyncStorageScreen } from "src/screens/other/AsyncStorageScreen"
@@ -93,6 +94,7 @@ const screenFunctions = [
   <ViewCountScreen />,
   <ConstantsScreen />,
   <TextInputScreen />,
+  <ShareFileScreen />,
   <AnimatableScreen />,
   <AnimatedUseScreen />,
   <AsyncStorageScreen />,
