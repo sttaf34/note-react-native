@@ -58,6 +58,7 @@ import { AnimatedButtonScreen } from "src/screens/other/AnimatedButtonScreen"
 import { DateTimePickerScreen } from "src/screens/other/DateTimePickerScreen"
 import { TextBlockInlineScreen } from "src/screens/other/TextBlockInlineScreen"
 import { HeavySlowScreen, HeavyFastScreen } from "src/screens/other/HeavyScreen"
+import { GenericComponentScreen } from "src/screens/other/GenericComponentScreen"
 import { NavigationOptionScreen } from "src/screens/other/NavigationOptionScreen"
 import { AnimatedScaleAnchorScreen } from "src/screens/other/AnimatedScaleAnchorScreen"
 
@@ -106,6 +107,7 @@ const screenFunctions = [
   <TextBlockInlineScreen />,
   <HeavySlowScreen />,
   <HeavyFastScreen />,
+  <GenericComponentScreen />,
   <NavigationOptionScreen />,
   <AnimatedScaleAnchorScreen />,
 ]
