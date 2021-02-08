@@ -49,6 +49,7 @@ import { ConstantsScreen } from "src/screens/other/ConstantsScreen"
 import { TextInputScreen } from "src/screens/other/TextInputScreen"
 import { ShareFileScreen } from "src/screens/other/ShareFileScreen"
 import { AnimatableScreen } from "src/screens/other/AnimatableScreen"
+import { GoogleDriveScreen } from "src/screens/other/GoogleDriveScreen"
 import { AnimatedUseScreen } from "src/screens/other/AnimatedUseScreen"
 import { AsyncStorageScreen } from "src/screens/other/AsyncStorageScreen"
 import { AnimatedHelloScreen } from "src/screens/other/AnimatedHelloScreen"
@@ -97,6 +98,7 @@ const screenFunctions = [
   <TextInputScreen />,
   <ShareFileScreen />,
   <AnimatableScreen />,
+  <GoogleDriveScreen />,
   <AnimatedUseScreen />,
   <AsyncStorageScreen />,
   <AnimatedHelloScreen />,
