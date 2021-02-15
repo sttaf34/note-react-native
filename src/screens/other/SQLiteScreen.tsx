@@ -1,6 +1,4 @@
 import React from "react"
-import { View, Button, StyleSheet } from "react-native"
-import { MarginDivider } from "src/components/MarginDivider"
 import * as SQLite from "expo-sqlite"
 import {
   SQLError,
@@ -9,19 +7,9 @@ import {
   SQLTransactionCallback,
 } from "expo-sqlite"
 
-const db = SQLite.openDatabase("sample")
+import { StyledButton } from "src/components/StyledButton"
 
-const styles = StyleSheet.create({
-  container: {
-    margin: 10,
-  },
-  buttonContainer: {
-    padding: 5,
-    borderColor: "gray",
-    borderWidth: 0.5,
-    borderRadius: 5,
-  },
-})
+const db = SQLite.openDatabase("sample")
 
 const logError = (error: SQLError) => {
   console.log(error)
@@ -37,10 +25,23 @@ const logResult = (transaction: SQLTransaction, resultSet: SQLResultSet) => {
 }
 
 const createTable = () => {
-  const callback: SQLTransactionCallback = (transaction: SQLTransaction) => {
-    transaction.executeSql(
-      "CREATE TABLE IF NOT EXISTS users (id INTEGER, name TEXT, age INTEGER);"
+  const create = `
+    CREATE TABLE IF NOT EXISTS users (
+      id INTEGER,
+      name TEXT,
+      age INTEGER DEFAULT NULL
     )
+  `
+  const callback: SQLTransactionCallback = (transaction: SQLTransaction) => {
+    transaction.executeSql(create)
+  }
+  db.transaction(callback, logError, logSuccess)
+}
+
+const dropTable = () => {
+  const drop = "DROP TABLE IF EXISTS users"
+  const callback: SQLTransactionCallback = (transaction: SQLTransaction) => {
+    transaction.executeSql(drop)
   }
   db.transaction(callback, logError, logSuccess)
 }
@@ -52,31 +53,22 @@ const select = () => {
   db.transaction(callback, logError, logSuccess)
 }
 
-const insert = () => {
+const insertUser = () => {
+  const insert = "INSERT INTO users (id, name, age) VALUES (?, ?, ?);"
   const callback = (transaction: SQLTransaction) => {
-    transaction.executeSql(
-      "INSERT INTO users (id, name, age) VALUES (1, 'sttaf34', 39);"
-    )
+    transaction.executeSql(insert, [1, "sttaf34", 39])
+    transaction.executeSql(insert, [2, "sttaf34", null])
   }
   db.transaction(callback, logError, logSuccess)
 }
 
 export const SqliteScreen: React.FC = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.buttonContainer}>
-        <Button onPress={createTable} title="Create Table" />
-      </View>
-      <MarginDivider />
-
-      <View style={styles.buttonContainer}>
-        <Button onPress={select} title="Select" />
-      </View>
-      <MarginDivider />
-
-      <View style={styles.buttonContainer}>
-        <Button onPress={insert} title="Insert" />
-      </View>
-    </View>
+    <>
+      <StyledButton onPress={createTable} title="Create Table" />
+      <StyledButton onPress={dropTable} title="Drop Table" />
+      <StyledButton onPress={select} title="Select" />
+      <StyledButton onPress={insertUser} title="Insert User" />
+    </>
   )
 }
