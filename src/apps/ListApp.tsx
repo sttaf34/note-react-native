@@ -48,10 +48,12 @@ import { ViewCountScreen } from "src/screens/other/ViewCountScreen"
 import { ConstantsScreen } from "src/screens/other/ConstantsScreen"
 import { TextInputScreen } from "src/screens/other/TextInputScreen"
 import { ShareFileScreen } from "src/screens/other/ShareFileScreen"
+import { FileUploadScreen } from "src/screens/other/FileUploadScreen"
 import { AnimatableScreen } from "src/screens/other/AnimatableScreen"
 import { GoogleDriveScreen } from "src/screens/other/GoogleDriveScreen"
 import { AnimatedUseScreen } from "src/screens/other/AnimatedUseScreen"
 import { AsyncStorageScreen } from "src/screens/other/AsyncStorageScreen"
+import { NetworkStateScreen } from "src/screens/other/NetworkStatusScreen"
 import { AnimatedHelloScreen } from "src/screens/other/AnimatedHelloScreen"
 import { HelloElementsScreen } from "src/screens/other/HelloElementsScreen"
 import { SqliteDatetimeScreen } from "src/screens/other/SQLiteDatetimeScreen"
@@ -97,10 +99,12 @@ const screenFunctions = [
   <ConstantsScreen />,
   <TextInputScreen />,
   <ShareFileScreen />,
+  <FileUploadScreen />,
   <AnimatableScreen />,
   <GoogleDriveScreen />,
   <AnimatedUseScreen />,
   <AsyncStorageScreen />,
+  <NetworkStateScreen />,
   <AnimatedHelloScreen />,
   <HelloElementsScreen />,
   <SqliteDatetimeScreen />,

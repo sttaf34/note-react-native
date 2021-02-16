@@ -30,27 +30,30 @@ const style = (state: PressableStateCallbackType) => {
 }
 
 type Props = {
-  title: string
   onPress: () => void
+  title?: string
   isRequestAnimation?: boolean
 }
 
 export const StyledButton: React.FC<Props> = ({
-  title,
   onPress,
+  title = "",
   isRequestAnimation = false,
 }: Props) => {
   const onPressAnimation = isRequestAnimation
     ? () => requestAnimationFrame(() => onPress())
     : () => onPress()
 
+  const textTitle = title === "" ? onPress.name : title
+
   return (
     <Pressable style={style} onPress={onPressAnimation}>
-      <Text style={styles.text}>{title}</Text>
+      <Text style={styles.text}>{textTitle}</Text>
     </Pressable>
   )
 }
 
 StyledButton.defaultProps = {
+  title: "",
   isRequestAnimation: false,
 }
