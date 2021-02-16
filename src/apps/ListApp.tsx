@@ -37,6 +37,7 @@ import { AlertScreen } from "src/screens/other/AlertScreen"
 import { GraphScreen } from "src/screens/other/GraphScreen"
 import { ImageScreen } from "src/screens/other/ImageScreen"
 import { ModalScreen } from "src/screens/other/ModalScreen"
+import { OAuthScreen } from "src/screens/other/OAuthScreen"
 import { CenterScreen } from "src/screens/other/CenterScreen"
 import { PickerScreen } from "src/screens/other/PickerScreen"
 import { SqliteScreen } from "src/screens/other/SQLiteScreen"
@@ -48,7 +49,6 @@ import { ViewCountScreen } from "src/screens/other/ViewCountScreen"
 import { ConstantsScreen } from "src/screens/other/ConstantsScreen"
 import { TextInputScreen } from "src/screens/other/TextInputScreen"
 import { ShareFileScreen } from "src/screens/other/ShareFileScreen"
-import { FileUploadScreen } from "src/screens/other/FileUploadScreen"
 import { AnimatableScreen } from "src/screens/other/AnimatableScreen"
 import { GoogleDriveScreen } from "src/screens/other/GoogleDriveScreen"
 import { AnimatedUseScreen } from "src/screens/other/AnimatedUseScreen"
@@ -88,6 +88,7 @@ const screenFunctions = [
   <GraphScreen />,
   <ImageScreen />,
   <ModalScreen />,
+  <OAuthScreen />,
   <CenterScreen />,
   <PickerScreen />,
   <SqliteScreen />,
@@ -99,7 +100,6 @@ const screenFunctions = [
   <ConstantsScreen />,
   <TextInputScreen />,
   <ShareFileScreen />,
-  <FileUploadScreen />,
   <AnimatableScreen />,
   <GoogleDriveScreen />,
   <AnimatedUseScreen />,
