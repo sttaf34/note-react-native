@@ -3,9 +3,9 @@ import { SafeAreaView } from "react-native"
 import { NavigationContainer } from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
 
+import { ScreenProps } from "src/constants/types"
 import { baseStyles } from "src/constants/baseStyles"
 import { StyledText } from "src/components/StyledText"
-import { ScreenProps } from "src/constants/navigationType"
 import { StyledButton } from "src/components/StyledButton"
 import { NavigationButton } from "src/components/NavigationButton"
 

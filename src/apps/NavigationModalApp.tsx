@@ -3,8 +3,8 @@ import { StyleSheet, SafeAreaView } from "react-native"
 import { NavigationContainer } from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
 
+import { ScreenProps } from "src/constants/types"
 import { baseStyles } from "src/constants/baseStyles"
-import { ScreenProps } from "src/constants/navigationType"
 import { StyledButton } from "src/components/StyledButton"
 
 const styles = StyleSheet.create({
