@@ -14,6 +14,12 @@ import {
 import { Cell } from "src/components/Cell"
 import { Line } from "src/components/Line"
 
+import { AnimatableScreen } from "src/screens/animation/AnimatableScreen"
+import { AnimatedUseScreen } from "src/screens/animation/AnimatedUseScreen"
+import { AnimatedHelloScreen } from "src/screens/animation/AnimatedHelloScreen"
+import { AnimatedButtonScreen } from "src/screens/animation/AnimatedButtonScreen"
+import { AnimatedScaleAnchorScreen } from "src/screens/animation/AnimatedScaleAnchorScreen"
+
 import { SwipeRowScreen } from "src/screens/list/SwipeRowScreen"
 import { FlatListScreen } from "src/screens/list/FlatListScreen"
 import { SwipeListScreen } from "src/screens/list/SwipeListScreen"
@@ -49,23 +55,24 @@ import { ViewCountScreen } from "src/screens/other/ViewCountScreen"
 import { ConstantsScreen } from "src/screens/other/ConstantsScreen"
 import { TextInputScreen } from "src/screens/other/TextInputScreen"
 import { ShareFileScreen } from "src/screens/other/ShareFileScreen"
-import { AnimatableScreen } from "src/screens/other/AnimatableScreen"
 import { GoogleDriveScreen } from "src/screens/other/GoogleDriveScreen"
-import { AnimatedUseScreen } from "src/screens/other/AnimatedUseScreen"
 import { AsyncStorageScreen } from "src/screens/other/AsyncStorageScreen"
 import { NetworkStateScreen } from "src/screens/other/NetworkStatusScreen"
-import { AnimatedHelloScreen } from "src/screens/other/AnimatedHelloScreen"
 import { HelloElementsScreen } from "src/screens/other/HelloElementsScreen"
 import { SqliteDatetimeScreen } from "src/screens/other/SQLiteDatetimeScreen"
-import { AnimatedButtonScreen } from "src/screens/other/AnimatedButtonScreen"
 import { DateTimePickerScreen } from "src/screens/other/DateTimePickerScreen"
 import { TextBlockInlineScreen } from "src/screens/other/TextBlockInlineScreen"
 import { HeavySlowScreen, HeavyFastScreen } from "src/screens/other/HeavyScreen"
 import { GenericComponentScreen } from "src/screens/other/GenericComponentScreen"
 import { NavigationOptionScreen } from "src/screens/other/NavigationOptionScreen"
-import { AnimatedScaleAnchorScreen } from "src/screens/other/AnimatedScaleAnchorScreen"
 
 const screenFunctions = [
+  <AnimatableScreen />,
+  <AnimatedUseScreen />,
+  <AnimatedHelloScreen />,
+  <AnimatedButtonScreen />,
+  <AnimatedScaleAnchorScreen />,
+
   <SwipeRowScreen />,
   <FlatListScreen />,
   <SwipeListScreen />,
@@ -100,22 +107,17 @@ const screenFunctions = [
   <ConstantsScreen />,
   <TextInputScreen />,
   <ShareFileScreen />,
-  <AnimatableScreen />,
   <GoogleDriveScreen />,
-  <AnimatedUseScreen />,
   <AsyncStorageScreen />,
   <NetworkStateScreen />,
-  <AnimatedHelloScreen />,
   <HelloElementsScreen />,
   <SqliteDatetimeScreen />,
-  <AnimatedButtonScreen />,
   <DateTimePickerScreen />,
   <TextBlockInlineScreen />,
   <HeavySlowScreen />,
   <HeavyFastScreen />,
   <GenericComponentScreen />,
   <NavigationOptionScreen />,
-  <AnimatedScaleAnchorScreen />,
 ]
 
 //

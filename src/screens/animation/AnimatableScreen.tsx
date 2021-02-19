@@ -13,7 +13,6 @@ type FadeViewProps = {
 // 画面全体が再レンダーされた時、
 // fadeIn になっているものが再度フェードインのアニメーションすると思いきや、
 // そうはならないようになっている
-// const MemoFadeView = React.memo(FadeView) する必要ない
 const FadeView: React.FC<FadeViewProps> = (props: FadeViewProps) => {
   const { isVisible } = props
   const animation = isVisible ? "fadeIn" : "fadeOut"
