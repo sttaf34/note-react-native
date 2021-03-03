@@ -63,8 +63,10 @@ import { SqliteDatetimeScreen } from "src/screens/other/SQLiteDatetimeScreen"
 import { DateTimePickerScreen } from "src/screens/other/DateTimePickerScreen"
 import { TextBlockInlineScreen } from "src/screens/other/TextBlockInlineScreen"
 import { HeavySlowScreen, HeavyFastScreen } from "src/screens/other/HeavyScreen"
+import { HelloButtonGroupScreen } from "src/screens/other/HelloButtonGroupScreen"
 import { GenericComponentScreen } from "src/screens/other/GenericComponentScreen"
 import { NavigationOptionScreen } from "src/screens/other/NavigationOptionScreen"
+import { SmoothButtonGroupScreen } from "src/screens/other/SmoothButtonGroupScreen"
 import { SqliteTransactionScreen } from "src/screens/other/SQLiteTransactionScreen"
 import { SqliteBeginCommitScreen } from "src/screens/other/SQLiteBeginCommitScreen"
 
@@ -118,8 +120,10 @@ const screenFunctions = [
   <TextBlockInlineScreen />,
   <HeavySlowScreen />,
   <HeavyFastScreen />,
+  <HelloButtonGroupScreen />,
   <GenericComponentScreen />,
   <NavigationOptionScreen />,
+  <SmoothButtonGroupScreen />,
   <SqliteTransactionScreen />,
   <SqliteBeginCommitScreen />,
 ]
