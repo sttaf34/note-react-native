@@ -65,6 +65,8 @@ import { TextBlockInlineScreen } from "src/screens/other/TextBlockInlineScreen"
 import { HeavySlowScreen, HeavyFastScreen } from "src/screens/other/HeavyScreen"
 import { GenericComponentScreen } from "src/screens/other/GenericComponentScreen"
 import { NavigationOptionScreen } from "src/screens/other/NavigationOptionScreen"
+import { SqliteTransactionScreen } from "src/screens/other/SQLiteTransactionScreen"
+import { SqliteBeginCommitScreen } from "src/screens/other/SQLiteBeginCommitScreen"
 
 const screenFunctions = [
   <AnimatableScreen />,
@@ -118,6 +120,8 @@ const screenFunctions = [
   <HeavyFastScreen />,
   <GenericComponentScreen />,
   <NavigationOptionScreen />,
+  <SqliteTransactionScreen />,
+  <SqliteBeginCommitScreen />,
 ]
 
 //
