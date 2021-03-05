@@ -57,6 +57,7 @@ import { TextInputScreen } from "src/screens/other/TextInputScreen"
 import { ShareFileScreen } from "src/screens/other/ShareFileScreen"
 import { GoogleDriveScreen } from "src/screens/other/GoogleDriveScreen"
 import { AsyncStorageScreen } from "src/screens/other/AsyncStorageScreen"
+import { FileDownloadScreen } from "src/screens/other/FileDownloadScreen"
 import { NetworkStateScreen } from "src/screens/other/NetworkStatusScreen"
 import { HelloElementsScreen } from "src/screens/other/HelloElementsScreen"
 import { SqliteDatetimeScreen } from "src/screens/other/SQLiteDatetimeScreen"
@@ -113,6 +114,7 @@ const screenFunctions = [
   <ShareFileScreen />,
   <GoogleDriveScreen />,
   <AsyncStorageScreen />,
+  <FileDownloadScreen />,
   <NetworkStateScreen />,
   <HelloElementsScreen />,
   <SqliteDatetimeScreen />,
