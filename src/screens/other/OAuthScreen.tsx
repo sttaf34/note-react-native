@@ -3,6 +3,7 @@ import { ScrollView } from "react-native-gesture-handler"
 
 import { StyledButton } from "src/components/StyledButton"
 import { StyledText } from "src/components/StyledText"
+import { GoogleLoginButton } from "src/components/GoogleLoginButton"
 import { GoogleContext, GoogleContextProvider } from "src/others/googleContext"
 
 const OAuthScreenInner: React.FC = () => {
@@ -27,7 +28,7 @@ const OAuthScreenInner: React.FC = () => {
   if (isReady === false) {
     return (
       <>
-        <StyledButton title="同意を求めるモーダルを表示" onPress={logIn} />
+        <GoogleLoginButton onPress={() => logIn()} />
         <ScrollView>
           <StyledText text={log} />
         </ScrollView>
