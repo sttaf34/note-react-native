@@ -6,16 +6,13 @@ const Hello: React.FC = () => {
     row: {
       height: "20%",
       flexDirection: "row",
-      backgroundColor: "white",
     },
     left: {
       width: "20%",
-      height: "100%",
       backgroundColor: "#eeeeee",
     },
     right: {
       width: "80%",
-      height: "100%",
       padding: 8,
       backgroundColor: "#dddddd",
     },
@@ -40,22 +37,18 @@ const FixedFluidRow: React.FC = () => {
     row: {
       height: "20%",
       flexDirection: "row",
-      backgroundColor: "white",
     },
     left: {
       width: 120,
-      height: "100%",
       backgroundColor: "#eeeeee",
     },
     center: {
       flex: 1,
-      height: "100%",
       padding: 8,
       backgroundColor: "#dddddd",
     },
     right: {
-      width: 10,
-      height: "100%",
+      width: 40,
       backgroundColor: "#cccccc",
     },
   })
@@ -71,6 +64,36 @@ const FixedFluidRow: React.FC = () => {
       </View>
       <View style={styles.right}>
         <Text />
+      </View>
+    </View>
+  )
+}
+
+const Shrink: React.FC = () => {
+  // アイテムの横幅の合計がコンテナをはみ出す場合に、縮めて収まるようにする
+  const styles = StyleSheet.create({
+    row: {
+      height: "20%",
+      flexDirection: "row",
+      borderWidth: 10,
+    },
+    boxA: {
+      width: 120,
+      backgroundColor: "#eeeeee",
+      flexShrink: 1,
+    },
+    boxB: {
+      width: 90,
+      backgroundColor: "#cccccc",
+      flexShrink: 1,
+    },
+  })
+  return (
+    <View style={styles.row}>
+      <View style={styles.boxA} />
+      <View style={styles.boxB} />
+      <View style={styles.boxA}>
+        <Text>端末サイズによってはコンテナを突き抜ける</Text>
       </View>
     </View>
   )
@@ -133,6 +156,7 @@ export const FlexScreen: React.FC = () => {
     <View style={styles.container}>
       <Hello />
       <FixedFluidRow />
+      <Shrink />
       <FixedFluidColumn />
     </View>
   )
