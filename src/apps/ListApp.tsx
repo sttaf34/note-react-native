@@ -48,6 +48,7 @@ import { OAuthScreen } from "src/screens/other/OAuthScreen"
 import { CenterScreen } from "src/screens/other/CenterScreen"
 import { PickerScreen } from "src/screens/other/PickerScreen"
 import { SqliteScreen } from "src/screens/other/SQLiteScreen"
+import { CaptureScreen } from "src/screens/other/CaptureScreen"
 import { UnmountScreen } from "src/screens/other/UnmountScreen"
 import { StorageScreen } from "src/screens/other/StorageScreen"
 import { KeyboardScreen } from "src/screens/other/KeyboardScreen"
@@ -106,6 +107,7 @@ const screenFunctions = [
   <CenterScreen />,
   <PickerScreen />,
   <SqliteScreen />,
+  <CaptureScreen />,
   <UnmountScreen />,
   <StorageScreen />,
   <KeyboardScreen />,
