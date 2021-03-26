@@ -27,7 +27,6 @@ import { SectionListScreen } from "src/screens/list/SectionListScreen"
 import { SwipeListRefScreen } from "src/screens/list/SwipeListRefScreen"
 import { SwipeAnimatedScreen } from "src/screens/list/SwipeAnimatedScreen"
 import { SwipeListEditScreen } from "src/screens/list/SwipeListEditScreen"
-import { FlatListContextScreen } from "src/screens/list/FlatListContextScreen"
 import { SwipeRowSectionScreen } from "src/screens/list/SwipeRowSectionScreen"
 import { SwipeListSectionScreen } from "src/screens/list/SwipeListSectionScreen"
 import { FlatListAnimatedScreen } from "src/screens/list/FlatListAnimatedScreen"
@@ -52,7 +51,6 @@ import { CaptureScreen } from "src/screens/other/CaptureScreen"
 import { UnmountScreen } from "src/screens/other/UnmountScreen"
 import { StorageScreen } from "src/screens/other/StorageScreen"
 import { KeyboardScreen } from "src/screens/other/KeyboardScreen"
-import { FirestoreScreen } from "src/screens/other/FirestoreScreen"
 import { ViewCountScreen } from "src/screens/other/ViewCountScreen"
 import { ConstantsScreen } from "src/screens/other/ConstantsScreen"
 import { TextInputScreen } from "src/screens/other/TextInputScreen"
@@ -87,7 +85,6 @@ const screenFunctions = [
   <SwipeListRefScreen />,
   <SwipeAnimatedScreen />,
   <SwipeListEditScreen />,
-  <FlatListContextScreen />,
   <SwipeRowSectionScreen />,
   <SwipeListSectionScreen />,
   <FlatListAnimatedScreen />,
@@ -111,7 +108,6 @@ const screenFunctions = [
   <UnmountScreen />,
   <StorageScreen />,
   <KeyboardScreen />,
-  <FirestoreScreen />,
   <ViewCountScreen />,
   <ConstantsScreen />,
   <TextInputScreen />,
